@@ -1,0 +1,30 @@
+{
+  "@@locale": "en",
+  "appName": "J'Donuts",
+  "continueAction": "Continue",
+  "backTooltip": "Back",
+  "offlineBanner": "You're offline. Showing saved data.",
+  "comingSoon": "Coming soon",
+  "retryAction": "Try again",
+  "termsOfUse": "Terms of Use",
+  "privacyPolicy": "Privacy Policy",
+  "navHome": "Home",
+  "navReward": "Reward",
+  "navScan": "Scan",
+  "navWallet": "Wallet",
+  "navSettings": "Settings",
+  "screenOnboarding": "Onboarding",
+  "screenPhone": "Phone number",
+  "screenOtp": "Verify number",
+  "screenName": "Your name",
+  "screenDateOfBirth": "Date of birth",
+  "screenWelcome": "Welcome",
+  "screenProduct": "Product {id}",
+  "@screenProduct": {
+    "placeholders": {
+      "id": {
+        "type": "String"
+      }
+    }
+  }
+}

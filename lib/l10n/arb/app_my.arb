@@ -1,0 +1,23 @@
+{
+  "@@locale": "my",
+  "appName": "J'Donuts",
+  "continueAction": "ဆက်လုပ်မည်",
+  "backTooltip": "နောက်သို့",
+  "offlineBanner": "အင်တာနက်မရှိပါ။ သိမ်းထားသော အချက်အလက်များကို ပြသနေသည်။",
+  "comingSoon": "မကြာမီ လာမည်",
+  "retryAction": "ထပ်ကြိုးစားမည်",
+  "termsOfUse": "အသုံးပြုမှု စည်းကမ်းများ",
+  "privacyPolicy": "ကိုယ်ရေးအချက်အလက် မူဝါဒ",
+  "navHome": "ပင်မ",
+  "navReward": "ဆုလာဘ်",
+  "navScan": "စကန်ဖတ်",
+  "navWallet": "ပိုက်ဆံအိတ်",
+  "navSettings": "ဆက်တင်",
+  "screenOnboarding": "စတင်ခြင်း",
+  "screenPhone": "ဖုန်းနံပါတ်",
+  "screenOtp": "နံပါတ်အတည်ပြုခြင်း",
+  "screenName": "သင့်အမည်",
+  "screenDateOfBirth": "မွေးနေ့",
+  "screenWelcome": "ကြိုဆိုပါသည်",
+  "screenProduct": "ပစ္စည်း {id}"
+}
