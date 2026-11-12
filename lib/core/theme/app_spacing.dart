@@ -26,6 +26,7 @@ abstract final class AppRadii {
 abstract final class AppSizes {
   static const double buttonHeight = 52;
   static const double fieldHeight = 56;
-  static const double progressRing = 28;
-  static const double progressRingStroke = 5;
+  static const double progressRing = 25;
+  static const double checkIcon = 20;
+  static const double progressRingStroke = 8;
 }

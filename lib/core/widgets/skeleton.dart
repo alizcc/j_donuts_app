@@ -4,7 +4,6 @@ import 'package:j_donuts_app/core/theme/app_colors.dart';
 import 'package:j_donuts_app/core/theme/app_spacing.dart';
 import 'package:shimmer/shimmer.dart';
 
-
 class SkeletonShimmer extends StatelessWidget {
   const SkeletonShimmer({required this.child, super.key});
 
@@ -21,7 +20,6 @@ class SkeletonShimmer extends StatelessWidget {
   }
 }
 
-/// A grey placeholder block used to sketch a loading layout.
 class SkeletonBox extends StatelessWidget {
   const SkeletonBox({
     this.width,

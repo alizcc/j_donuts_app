@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:j_donuts_app/core/l10n/l10n.dart';
 
-/// Hosts the five bottom-nav tabs.
-///
-/// Uses a stock [NavigationBar] for now; the branded sliding-pill bar
-/// replaces it with the Home feature.
 class AppShell extends StatelessWidget {
   const AppShell({required this.shell, super.key});
 
@@ -30,10 +26,8 @@ class AppShell extends StatelessWidget {
     );
   }
 
-  void _goToBranch(int index) => shell.goBranch(
-    index,
-    initialLocation: index == shell.currentIndex,
-  );
+  void _goToBranch(int index) =>
+      shell.goBranch(index, initialLocation: index == shell.currentIndex);
 
   NavigationDestination _destination(IconData icon, String label) =>
       NavigationDestination(icon: Icon(icon), label: label);

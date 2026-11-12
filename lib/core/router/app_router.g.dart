@@ -8,26 +8,13 @@ part of 'app_router.dart';
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint, type=warning
-/// The app's routes. Screens are placeholders until each feature lands.
-///
-/// `redirect` runs on every navigation and reads the current auth status.
-/// After logging in or out, screens call `context.go(...)` themselves.
 
 @ProviderFor(appRouter)
 final appRouterProvider = AppRouterProvider._();
 
-/// The app's routes. Screens are placeholders until each feature lands.
-///
-/// `redirect` runs on every navigation and reads the current auth status.
-/// After logging in or out, screens call `context.go(...)` themselves.
-
 final class AppRouterProvider
     extends $FunctionalProvider<GoRouter, GoRouter, GoRouter>
     with $Provider<GoRouter> {
-  /// The app's routes. Screens are placeholders until each feature lands.
-  ///
-  /// `redirect` runs on every navigation and reads the current auth status.
-  /// After logging in or out, screens call `context.go(...)` themselves.
   AppRouterProvider._()
     : super(
         from: null,
@@ -61,4 +48,4 @@ final class AppRouterProvider
   }
 }
 
-String _$appRouterHash() => r'db2e9ed97cf623ff68ce377a80813f50cf7e84b4';
+String _$appRouterHash() => r'0e60cd4b9e32c8a3c1109eef6a7044f276b014a2';

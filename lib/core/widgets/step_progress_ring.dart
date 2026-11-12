@@ -11,7 +11,7 @@ class StepProgressRing extends StatelessWidget {
     super.key,
   });
 
-  static const double _trackOpacity = 0.35;
+  static const double _trackOpacity = 0.5;
 
   final int step;
   final int totalSteps;
@@ -34,11 +34,13 @@ class StepProgressRing extends StatelessWidget {
     );
   }
 
-  Widget get _check => const Icon(
-    Icons.check_circle,
-    key: ValueKey('check'),
-    color: AppColors.pink,
-    size: AppSizes.progressRing,
+  Widget get _check => const OverflowBox(
+    maxWidth: 35,
+    maxHeight: 35,
+    child: CircleAvatar(
+      backgroundColor: AppColors.pink,
+      child: Icon(Icons.check_rounded, size: AppSizes.checkIcon),
+    ),
   );
 
   Widget _ring(double value) => CircularProgressIndicator(

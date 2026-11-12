@@ -5,6 +5,5 @@ extension MotionScaleX on BuildContext {
   bool get reduceMotion => MediaQuery.maybeDisableAnimationsOf(this) ?? false;
 
   /// [duration], or [Duration.zero] when Reduce Motion is on.
-  Duration motion(Duration duration) =>
-      reduceMotion ? Duration.zero : duration;
+  Duration motion(Duration duration) => reduceMotion ? Duration.zero : duration;
 }

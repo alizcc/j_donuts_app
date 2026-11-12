@@ -6,14 +6,16 @@ import 'package:j_donuts_app/core/router/auth_redirect.dart';
 import 'package:j_donuts_app/core/router/auth_status.dart';
 import 'package:j_donuts_app/core/router/route_transitions.dart';
 import 'package:j_donuts_app/core/widgets/placeholder_screen.dart';
+import 'package:j_donuts_app/features/auth/presentation/screens/date_of_birth_screen.dart';
+import 'package:j_donuts_app/features/auth/presentation/screens/name_screen.dart';
+import 'package:j_donuts_app/features/auth/presentation/screens/onboarding_screen.dart';
+import 'package:j_donuts_app/features/auth/presentation/screens/otp_screen.dart';
+import 'package:j_donuts_app/features/auth/presentation/screens/phone_screen.dart';
+import 'package:j_donuts_app/features/settings/presentation/settings_screen.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'app_router.g.dart';
 
-/// The app's routes. Screens are placeholders until each feature lands.
-///
-/// `redirect` runs on every navigation and reads the current auth status.
-/// After logging in or out, screens call `context.go(...)` themselves.
 @Riverpod(keepAlive: true)
 GoRouter appRouter(Ref ref) {
   return GoRouter(
@@ -25,52 +27,38 @@ GoRouter appRouter(Ref ref) {
     routes: [
       GoRoute(
         path: AppRoutes.onboarding,
-        pageBuilder: (context, state) => fadeThroughPage(
-          state: state,
-          child: PlaceholderScreen(title: context.l10n.screenOnboarding),
-        ),
+        pageBuilder: (context, state) =>
+            fadeThroughPage(state: state, child: const OnboardingScreen()),
       ),
       GoRoute(
         path: AppRoutes.registerPhone,
-        pageBuilder: (context, state) => sharedAxisPage(
-          state: state,
-          child: PlaceholderScreen(title: context.l10n.screenPhone),
-        ),
+        pageBuilder: (context, state) =>
+            sharedAxisPage(state: state, child: const PhoneScreen()),
       ),
       GoRoute(
         path: AppRoutes.registerOtp,
-        pageBuilder: (context, state) => sharedAxisPage(
-          state: state,
-          child: PlaceholderScreen(title: context.l10n.screenOtp),
-        ),
+        pageBuilder: (context, state) =>
+            sharedAxisPage(state: state, child: const OtpScreen()),
       ),
       GoRoute(
         path: AppRoutes.registerName,
-        pageBuilder: (context, state) => sharedAxisPage(
-          state: state,
-          child: PlaceholderScreen(title: context.l10n.screenName),
-        ),
+        pageBuilder: (context, state) =>
+            sharedAxisPage(state: state, child: const NameScreen()),
       ),
       GoRoute(
         path: AppRoutes.registerDateOfBirth,
-        pageBuilder: (context, state) => sharedAxisPage(
-          state: state,
-          child: PlaceholderScreen(title: context.l10n.screenDateOfBirth),
-        ),
+        pageBuilder: (context, state) =>
+            sharedAxisPage(state: state, child: const DateOfBirthScreen()),
       ),
       GoRoute(
         path: AppRoutes.loginPhone,
-        pageBuilder: (context, state) => sharedAxisPage(
-          state: state,
-          child: PlaceholderScreen(title: context.l10n.screenPhone),
-        ),
+        pageBuilder: (context, state) =>
+            sharedAxisPage(state: state, child: const PhoneScreen()),
       ),
       GoRoute(
         path: AppRoutes.loginOtp,
-        pageBuilder: (context, state) => sharedAxisPage(
-          state: state,
-          child: PlaceholderScreen(title: context.l10n.screenOtp),
-        ),
+        pageBuilder: (context, state) =>
+            sharedAxisPage(state: state, child: const OtpScreen()),
       ),
       GoRoute(
         path: AppRoutes.welcome,
@@ -97,7 +85,14 @@ GoRouter appRouter(Ref ref) {
           _tab(AppRoutes.rewards, (l10n) => l10n.navReward),
           _tab(AppRoutes.scan, (l10n) => l10n.navScan),
           _tab(AppRoutes.wallet, (l10n) => l10n.navWallet),
-          _tab(AppRoutes.settings, (l10n) => l10n.navSettings),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoutes.settings,
+                builder: (context, state) => const SettingsScreen(),
+              ),
+            ],
+          ),
         ],
       ),
     ],

@@ -176,36 +176,6 @@ abstract class AppLocalizations {
   /// **'Settings'**
   String get navSettings;
 
-  /// No description provided for @screenOnboarding.
-  ///
-  /// In en, this message translates to:
-  /// **'Onboarding'**
-  String get screenOnboarding;
-
-  /// No description provided for @screenPhone.
-  ///
-  /// In en, this message translates to:
-  /// **'Phone number'**
-  String get screenPhone;
-
-  /// No description provided for @screenOtp.
-  ///
-  /// In en, this message translates to:
-  /// **'Verify number'**
-  String get screenOtp;
-
-  /// No description provided for @screenName.
-  ///
-  /// In en, this message translates to:
-  /// **'Your name'**
-  String get screenName;
-
-  /// No description provided for @screenDateOfBirth.
-  ///
-  /// In en, this message translates to:
-  /// **'Date of birth'**
-  String get screenDateOfBirth;
-
   /// No description provided for @screenWelcome.
   ///
   /// In en, this message translates to:
@@ -217,6 +187,216 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Product {id}'**
   String screenProduct(String id);
+
+  /// No description provided for @onboardingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Round food for\nevery mood'**
+  String get onboardingTitle;
+
+  /// No description provided for @letsGetStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s get started'**
+  String get letsGetStarted;
+
+  /// No description provided for @alreadyHaveAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Already have an account?'**
+  String get alreadyHaveAccount;
+
+  /// No description provided for @logIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Log In'**
+  String get logIn;
+
+  /// No description provided for @termsPrefix.
+  ///
+  /// In en, this message translates to:
+  /// **'By continuing, you acknowledge that you have read and agree to our'**
+  String get termsPrefix;
+
+  /// No description provided for @termsAnd.
+  ///
+  /// In en, this message translates to:
+  /// **'and'**
+  String get termsAnd;
+
+  /// No description provided for @genericError.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong. Please try again.'**
+  String get genericError;
+
+  /// No description provided for @phoneTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your phone number'**
+  String get phoneTitle;
+
+  /// No description provided for @phoneHint.
+  ///
+  /// In en, this message translates to:
+  /// **'09 xxx xxx xxx'**
+  String get phoneHint;
+
+  /// No description provided for @phoneErrorEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your phone number'**
+  String get phoneErrorEmpty;
+
+  /// No description provided for @phoneErrorInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a valid Myanmar mobile number'**
+  String get phoneErrorInvalid;
+
+  /// No description provided for @phoneNotRegistered.
+  ///
+  /// In en, this message translates to:
+  /// **'This number isn\'t registered yet.'**
+  String get phoneNotRegistered;
+
+  /// No description provided for @registerLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Register'**
+  String get registerLink;
+
+  /// No description provided for @otpTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Verify your number'**
+  String get otpTitle;
+
+  /// No description provided for @otpSentTo.
+  ///
+  /// In en, this message translates to:
+  /// **'We\'ve sent 6 digit OTP to {phone}'**
+  String otpSentTo(String phone);
+
+  /// No description provided for @otpWrongCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Wrong code. {attemptsLeft, plural, =1{1 attempt left.} other{{attemptsLeft} attempts left.}}'**
+  String otpWrongCode(int attemptsLeft);
+
+  /// No description provided for @otpLocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Too many wrong codes. Resend to get a new one.'**
+  String get otpLocked;
+
+  /// No description provided for @otpDidntReceive.
+  ///
+  /// In en, this message translates to:
+  /// **'Didn\'t receive the code?'**
+  String get otpDidntReceive;
+
+  /// No description provided for @otpResendIn.
+  ///
+  /// In en, this message translates to:
+  /// **'resend in'**
+  String get otpResendIn;
+
+  /// No description provided for @otpMinutes.
+  ///
+  /// In en, this message translates to:
+  /// **'min'**
+  String get otpMinutes;
+
+  /// No description provided for @otpResend.
+  ///
+  /// In en, this message translates to:
+  /// **'Resend'**
+  String get otpResend;
+
+  /// No description provided for @nameTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s your name?'**
+  String get nameTitle;
+
+  /// No description provided for @firstNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'First Name'**
+  String get firstNameHint;
+
+  /// No description provided for @lastNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Name'**
+  String get lastNameHint;
+
+  /// No description provided for @nameErrorEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your first name'**
+  String get nameErrorEmpty;
+
+  /// No description provided for @nameErrorTooLong.
+  ///
+  /// In en, this message translates to:
+  /// **'Use {max} characters or fewer'**
+  String nameErrorTooLong(int max);
+
+  /// No description provided for @nameErrorInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'Use letters and spaces only'**
+  String get nameErrorInvalid;
+
+  /// No description provided for @dobTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s your date of birth?'**
+  String get dobTitle;
+
+  /// No description provided for @monthHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Month'**
+  String get monthHint;
+
+  /// No description provided for @dayHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Day'**
+  String get dayHint;
+
+  /// No description provided for @yearHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Year'**
+  String get yearHint;
+
+  /// No description provided for @dobErrorInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'This date doesn\'t exist'**
+  String get dobErrorInvalid;
+
+  /// No description provided for @dobErrorFuture.
+  ///
+  /// In en, this message translates to:
+  /// **'Date of birth can\'t be in the future'**
+  String get dobErrorFuture;
+
+  /// No description provided for @dobErrorTooYoung.
+  ///
+  /// In en, this message translates to:
+  /// **'You must be at least {age} years old'**
+  String dobErrorTooYoung(int age);
+
+  /// No description provided for @logOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Log out'**
+  String get logOut;
 }
 
 class _AppLocalizationsDelegate
