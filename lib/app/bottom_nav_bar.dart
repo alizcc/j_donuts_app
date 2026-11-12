@@ -27,7 +27,6 @@ class BottomNavBar extends StatelessWidget {
     return DecoratedBox(
       decoration: const BoxDecoration(
         color: AppColors.cyan,
-        //borderRadius: BorderRadius.vertical(top: Radius.circular(AppRadii.xl)),
       ),
       child: SafeArea(
         top: false,
