@@ -22,7 +22,6 @@ abstract class AuthFlowState with _$AuthFlowState {
   }) = _AuthFlowState;
 
   const AuthFlowState._();
-  // Private named constructor to support custom methods and getters in Freezed.
 
   String? get normalizedPhone => normalizeMyanmarPhone(phoneInput);
 }

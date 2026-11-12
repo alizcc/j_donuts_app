@@ -6,7 +6,6 @@ import 'package:j_donuts_app/core/motion/motion_scale.dart';
 import 'package:j_donuts_app/core/theme/app_spacing.dart';
 import 'package:j_donuts_app/core/theme/app_typography.dart';
 
-// Gives every Home section its own loading, empty and error state.
 class AsyncSection<T> extends StatelessWidget {
   const AsyncSection({
     required this.value,

@@ -6,10 +6,6 @@ import 'package:j_donuts_app/core/theme/app_spacing.dart';
 import 'package:j_donuts_app/core/theme/app_typography.dart';
 import 'package:j_donuts_app/core/widgets/pressable_scale.dart';
 
-/// Full-width pill call-to-action.
-///
-/// Disabled (grey) when [onPressed] is null. While [isLoading] the label is
-/// swapped for a spinner and taps are ignored.
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
     required this.label,

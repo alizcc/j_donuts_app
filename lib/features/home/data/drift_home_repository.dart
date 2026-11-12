@@ -13,8 +13,6 @@ import 'package:j_donuts_app/features/home/domain/shop.dart';
 import 'package:j_donuts_app/features/product/data/product_mapper.dart';
 import 'package:j_donuts_app/features/product/domain/product.dart';
 
-// The UI only ever reads the local database. refresh() pulls from the remote
-// source and writes into the database, and the watch streams pick it up.
 class DriftHomeRepository implements HomeRepository {
   const DriftHomeRepository({
     required AppDatabase database,

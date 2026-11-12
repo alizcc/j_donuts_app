@@ -1,8 +1,6 @@
 import 'package:flutter/animation.dart';
 
-/// Every duration and curve used by the app's motion lives here.
 abstract final class AppMotion {
-  // Durations
   static const Duration instant = Duration(milliseconds: 90);
   static const Duration fast = Duration(milliseconds: 150);
   static const Duration medium = Duration(milliseconds: 280);
@@ -16,14 +14,16 @@ abstract final class AppMotion {
   static const Duration shimmer = Duration(milliseconds: 1300);
   static const Duration carouselInterval = Duration(seconds: 4);
   static const Duration drift = Duration(seconds: 6);
+  static const Duration tierStagger = Duration(milliseconds: 180);
+  static const Duration badgePop = Duration(milliseconds: 500);
+  static const Duration pulse = Duration(milliseconds: 700);
 
-  // Curves
   static const Curve standard = Curves.easeInOutCubic;
   static const Curve emphasized = Curves.easeOutCubic;
   static const Curve overshoot = Curves.easeOutBack;
 
-  // Scales and offsets
   static const double pressedScale = 0.96;
+  static const double pulseScale = 1.08;
   static const double shakeOffset = 10;
   static const int shakeCycles = 3;
 }

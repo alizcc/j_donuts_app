@@ -77,5 +77,19 @@
   "decreaseQuantity": "အရေအတွက် လျှော့ရန်",
   "increaseQuantity": "အရေအတွက် တိုးရန်",
   "productNotFound": "ဤပစ္စည်း မရနိုင်တော့ပါ",
-  "productError": "ဤပစ္စည်းကို ဖွင့်၍မရပါ"
+  "productError": "ဤပစ္စည်းကို ဖွင့်၍မရပါ",
+  "rewardsTitle": "J' Donuts ဆုလာဘ်များ",
+  "myRewards": "ဆုလာဘ်",
+  "rewardPoints": "{points}",
+  "tabEatMore": "များများစား များများရ",
+  "tabGift": "လက်ဆောင်",
+  "earnAction": "ရယူမည်",
+  "rewardsError": "ဆုလာဘ်များကို ဖွင့်၍မရပါ",
+  "totalPoints": "စုစုပေါင်းမှတ်",
+  "tierHereNow": "လက်ရှိအဆင့်",
+  "tierRemaining": "{tier} ဖြစ်ရန် {points} မှတ် လိုသေးသည်",
+  "tierSoon": "မကြာမီ ရောက်ရှိမည်",
+  "tierUnlocked": "ရရှိပြီး",
+  "challengeCount": "{progress}/{goal}",
+  "challengePoints": "{points} မှတ်"
 }

@@ -42,7 +42,7 @@ final class AuthFlowControllerProvider
 }
 
 String _$authFlowControllerHash() =>
-    r'f310dc96c38bd1f3f5ce5b2a308cd6f60b426f6d';
+    r'c2f7d6b4b28f018a142aad39d8c9559f24f05ae0';
 
 abstract class _$AuthFlowController extends $Notifier<AuthFlowState> {
   AuthFlowState build();

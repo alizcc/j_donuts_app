@@ -1,4 +1,3 @@
-/// Route paths. Screens navigate with these constants, never string literals.
 abstract final class AppRoutes {
   static const String onboarding = '/onboarding';
 
@@ -23,7 +22,6 @@ abstract final class AppRoutes {
 
   static String productDetail(String id) => '/product/$id';
 
-  /// Routes reachable without a session.
   static const Set<String> public = {
     onboarding,
     registerPhone,

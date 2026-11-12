@@ -55,7 +55,6 @@ void main() {
     await _tap(tester, find.text(l10n.letsExplore.toUpperCase()));
 
     await _waitFor(tester, find.text('Ye Min'));
-    // Let the sections finish sliding in so the tap lands on the tile.
     await tester.pump(AppMotion.entrance * 2);
     await _tap(tester, find.text('Coconut Donut').first);
 
@@ -64,8 +63,7 @@ void main() {
   });
 }
 
-// pumpAndSettle never settles on screens with shimmer or a ticking timer, so
-// pump in small steps until the widget shows up.
+// pumpAndSettle hangs on shimmer and timers
 Future<void> _waitFor(WidgetTester tester, Finder finder) async {
   const step = Duration(milliseconds: 100);
   const maxSteps = 100;
@@ -75,8 +73,7 @@ Future<void> _waitFor(WidgetTester tester, Finder finder) async {
   expect(finder, findsWidgets);
 }
 
-// Waits for the step's title, then lets the page transition finish so the
-// previous step's fields are gone.
+// wait for the page transition to finish
 Future<void> _openStep(WidgetTester tester, String title) async {
   await _waitFor(tester, find.text(title));
   await tester.pump(AppMotion.pageTransition * 2);

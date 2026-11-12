@@ -18,6 +18,7 @@ class DriftMemberRepository implements MemberRepository {
               tier: row.tier,
               points: row.points,
               nextTierPoints: row.nextTierPoints,
+              tierStartPoints: row.tierStartPoints,
               notificationCount: row.notificationCount,
               rewardCount: row.rewardCount,
             ),

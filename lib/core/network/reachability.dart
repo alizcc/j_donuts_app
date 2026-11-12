@@ -1,8 +1,6 @@
 import 'dart:async';
 import 'dart:io';
 
-// connectivity_plus only knows a network interface is up. This checks the
-// internet is actually reachable, e.g. not stuck behind a captive portal.
 class Reachability {
   const Reachability();
 

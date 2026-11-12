@@ -9,7 +9,6 @@ import 'package:j_donuts_app/features/home/domain/shop.dart';
 import 'package:j_donuts_app/features/home/presentation/home_section_providers.dart';
 import 'package:j_donuts_app/features/home/presentation/widgets/async_section.dart';
 
-// Display only: Explore now and Order online have no action.
 class ShopsSection extends ConsumerWidget {
   const ShopsSection({super.key});
 

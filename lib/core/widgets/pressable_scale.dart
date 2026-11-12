@@ -2,7 +2,6 @@ import 'package:flutter/widgets.dart';
 import 'package:j_donuts_app/core/motion/app_motion.dart';
 import 'package:j_donuts_app/core/motion/motion_scale.dart';
 
-/// Shrinks [child] slightly while pressed. Does nothing when [onTap] is null.
 class PressableScale extends StatefulWidget {
   const PressableScale({required this.child, this.onTap, super.key});
 

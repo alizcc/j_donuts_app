@@ -4,7 +4,6 @@ import 'package:j_donuts_app/core/theme/app_colors.dart';
 import 'package:j_donuts_app/core/theme/app_spacing.dart';
 import 'package:j_donuts_app/core/theme/app_typography.dart';
 
-/// Stand-in for screens that are not built yet.
 class PlaceholderScreen extends StatelessWidget {
   const PlaceholderScreen({required this.title, super.key});
 

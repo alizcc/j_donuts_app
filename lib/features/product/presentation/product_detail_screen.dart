@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:j_donuts_app/core/l10n/l10n.dart';
+import 'package:j_donuts_app/core/network/network_providers.dart';
 import 'package:j_donuts_app/core/router/app_routes.dart';
 import 'package:j_donuts_app/core/theme/app_colors.dart';
 import 'package:j_donuts_app/core/theme/app_spacing.dart';
 import 'package:j_donuts_app/core/theme/app_typography.dart';
+import 'package:j_donuts_app/core/widgets/offline_banner.dart';
 import 'package:j_donuts_app/core/widgets/skeleton.dart';
 import 'package:j_donuts_app/features/product/domain/product.dart';
 import 'package:j_donuts_app/features/product/presentation/product_detail_view.dart';
@@ -22,6 +24,7 @@ class ProductDetailScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
+    final isOffline = ref.watch(isOnlineProvider).value == false;
     return Scaffold(
       backgroundColor: AppColors.greySurface,
       body: SafeArea(
@@ -46,6 +49,7 @@ class ProductDetailScreen extends ConsumerWidget {
                 ),
               },
             ),
+            OfflineBanner(isOffline: isOffline),
           ],
         ),
       ),

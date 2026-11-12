@@ -77,7 +77,6 @@ void main() {
 
     await leaveField(tester);
 
-    // The screen title uses the same wording, so look inside the field only.
     expect(
       find.descendant(
         of: find.byType(TextField),

@@ -16,8 +16,7 @@ CatalogStore catalogStore(Ref ref) =>
 @Riverpod(keepAlive: true)
 CatalogRemoteSource catalogRemoteSource(Ref ref) => FakeCatalogRemoteSource();
 
-// Every screen that reads the catalog waits on this first, so the bundled
-// seed is in the database before the first query runs.
+// seed must finish before the first query
 @Riverpod(keepAlive: true)
 Future<void> catalogSeed(Ref ref) =>
     CatalogSeeder(ref.watch(catalogStoreProvider)).seedIfEmpty();

@@ -41,8 +41,7 @@ Future<ProviderContainer> pumpAuthScreen(
   return container;
 }
 
-// Unmount before disposing so screen timers (OTP countdown) are cancelled
-// before the test ends.
+// unmount first so the OTP timer is cancelled
 Future<void> disposeAuthScreen(
   WidgetTester tester,
   ProviderContainer container,

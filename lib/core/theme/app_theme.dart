@@ -3,7 +3,6 @@ import 'package:j_donuts_app/core/theme/app_colors.dart';
 import 'package:j_donuts_app/core/theme/app_spacing.dart';
 import 'package:j_donuts_app/core/theme/app_typography.dart';
 
-/// Builds the app's [ThemeData] from the design tokens.
 abstract final class AppTheme {
   static const double _fieldBorderWidth = 1.5;
 
@@ -44,8 +43,6 @@ abstract final class AppTheme {
     );
   }
 
-  /// White rounded fields: no border at rest, cyan when focused, red on
-  /// error. Material animates between these states for us.
   static InputDecorationTheme _inputTheme() {
     final subtle = AppTypography.body.copyWith(color: AppColors.inkSubtle);
     return InputDecorationTheme(

@@ -274,4 +274,62 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get productError => 'Couldn\'t load this product';
+
+  @override
+  String get rewardsTitle => 'J\' Donuts Rewards';
+
+  @override
+  String get myRewards => 'Rewards';
+
+  @override
+  String rewardPoints(int points) {
+    final intl.NumberFormat pointsNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String pointsString = pointsNumberFormat.format(points);
+
+    return '$pointsString';
+  }
+
+  @override
+  String get tabEatMore => 'Eat more earn more';
+
+  @override
+  String get tabGift => 'Gift';
+
+  @override
+  String get earnAction => 'Earn';
+
+  @override
+  String get rewardsError => 'Couldn\'t load your rewards';
+
+  @override
+  String get totalPoints => 'Total points';
+
+  @override
+  String get tierHereNow => 'You\'re here now';
+
+  @override
+  String tierRemaining(int points, String tier) {
+    final intl.NumberFormat pointsNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String pointsString = pointsNumberFormat.format(points);
+
+    return '$pointsString pts Remaining to become $tier';
+  }
+
+  @override
+  String get tierSoon => 'You\'ll be here soon';
+
+  @override
+  String get tierUnlocked => 'Unlocked';
+
+  @override
+  String challengeCount(int progress, int goal) {
+    return '$progress/$goal';
+  }
+
+  @override
+  String challengePoints(int points) {
+    return '$points pts';
+  }
 }

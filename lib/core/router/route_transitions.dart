@@ -4,7 +4,6 @@ import 'package:go_router/go_router.dart';
 import 'package:j_donuts_app/core/motion/app_motion.dart';
 import 'package:j_donuts_app/core/motion/motion_scale.dart';
 
-/// Horizontal shared-axis page, used between registration steps.
 CustomTransitionPage<void> sharedAxisPage({
   required GoRouterState state,
   required Widget child,
@@ -27,7 +26,6 @@ CustomTransitionPage<void> sharedAxisPage({
   );
 }
 
-/// Fade-through page, used between unrelated top-level destinations.
 CustomTransitionPage<void> fadeThroughPage({
   required GoRouterState state,
   required Widget child,

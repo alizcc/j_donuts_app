@@ -9,11 +9,9 @@ abstract final class AppSpacing {
   static const double xxxl = 32;
   static const double huge = 48;
 
-  /// Horizontal padding of full-width screen content.
   static const double screenGutter = 24;
 }
 
-/// Corner radii used across cards, fields and pills.
 abstract final class AppRadii {
   static const double sm = 8;
   static const double md = 12;
@@ -22,7 +20,6 @@ abstract final class AppRadii {
   static const double pill = 999;
 }
 
-/// Fixed component sizes that several widgets agree on.
 abstract final class AppSizes {
   static const double buttonHeight = 52;
   static const double fieldHeight = 56;

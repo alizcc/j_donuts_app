@@ -9,7 +9,7 @@ class AuthStatusController extends _$AuthStatusController {
   @override
   AuthStatus build() => AuthStatus.unauthenticated;
 
-  // A setter would read oddly at call sites (`notifier.status = ...`).
+  // update(x) reads better than a setter here
   // ignore: use_setters_to_change_properties
   void update(AuthStatus status) => state = status;
 }

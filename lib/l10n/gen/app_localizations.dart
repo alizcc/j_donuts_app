@@ -565,6 +565,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Couldn\'t load this product'**
   String get productError;
+
+  /// No description provided for @rewardsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'J\' Donuts Rewards'**
+  String get rewardsTitle;
+
+  /// No description provided for @myRewards.
+  ///
+  /// In en, this message translates to:
+  /// **'Rewards'**
+  String get myRewards;
+
+  /// No description provided for @rewardPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'{points}'**
+  String rewardPoints(int points);
+
+  /// No description provided for @tabEatMore.
+  ///
+  /// In en, this message translates to:
+  /// **'Eat more earn more'**
+  String get tabEatMore;
+
+  /// No description provided for @tabGift.
+  ///
+  /// In en, this message translates to:
+  /// **'Gift'**
+  String get tabGift;
+
+  /// No description provided for @earnAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Earn'**
+  String get earnAction;
+
+  /// No description provided for @rewardsError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t load your rewards'**
+  String get rewardsError;
+
+  /// No description provided for @totalPoints.
+  ///
+  /// In en, this message translates to:
+  /// **'Total points'**
+  String get totalPoints;
+
+  /// No description provided for @tierHereNow.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re here now'**
+  String get tierHereNow;
+
+  /// No description provided for @tierRemaining.
+  ///
+  /// In en, this message translates to:
+  /// **'{points} pts Remaining to become {tier}'**
+  String tierRemaining(int points, String tier);
+
+  /// No description provided for @tierSoon.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'ll be here soon'**
+  String get tierSoon;
+
+  /// No description provided for @tierUnlocked.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlocked'**
+  String get tierUnlocked;
+
+  /// No description provided for @challengeCount.
+  ///
+  /// In en, this message translates to:
+  /// **'{progress}/{goal}'**
+  String challengeCount(int progress, int goal);
+
+  /// No description provided for @challengePoints.
+  ///
+  /// In en, this message translates to:
+  /// **'{points} pts'**
+  String challengePoints(int points);
 }
 
 class _AppLocalizationsDelegate

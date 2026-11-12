@@ -54,7 +54,6 @@ class _OtpScreenState extends ConsumerState<OtpScreen> {
     if (next == AppRoutes.registerName) {
       context.pushReplacement(next);
     } else {
-      // Returning users are signed in now, so drop the sign-in screens.
       context.go(next);
     }
   }

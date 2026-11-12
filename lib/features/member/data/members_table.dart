@@ -7,6 +7,7 @@ class Members extends Table {
   TextColumn get tier => textEnum<MemberTier>()();
   IntColumn get points => integer()();
   IntColumn get nextTierPoints => integer()();
+  IntColumn get tierStartPoints => integer().withDefault(const Constant(0))();
   IntColumn get notificationCount => integer()();
   IntColumn get rewardCount => integer()();
 

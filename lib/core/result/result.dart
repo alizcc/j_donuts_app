@@ -1,10 +1,8 @@
 import 'package:j_donuts_app/core/result/failure.dart';
 
-/// The outcome of an operation that can fail: either [Success] or [Err].
 sealed class Result<T> {
   const Result();
 
-  /// Collapses both branches into a single value.
   R fold<R>(
     R Function(Failure failure) onFailure,
     R Function(T value) onSuccess,

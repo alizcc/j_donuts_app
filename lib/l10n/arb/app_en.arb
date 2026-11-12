@@ -153,5 +153,55 @@
   "decreaseQuantity": "Decrease quantity",
   "increaseQuantity": "Increase quantity",
   "productNotFound": "This product is no longer available",
-  "productError": "Couldn't load this product"
+  "productError": "Couldn't load this product",
+  "rewardsTitle": "J' Donuts Rewards",
+  "myRewards": "Rewards",
+  "rewardPoints": "{points}",
+  "@rewardPoints": {
+    "placeholders": {
+      "points": {
+        "type": "int",
+        "format": "decimalPattern"
+      }
+    }
+  },
+  "tabEatMore": "Eat more earn more",
+  "tabGift": "Gift",
+  "earnAction": "Earn",
+  "rewardsError": "Couldn't load your rewards",
+  "totalPoints": "Total points",
+  "tierHereNow": "You're here now",
+  "tierRemaining": "{points} pts Remaining to become {tier}",
+  "@tierRemaining": {
+    "placeholders": {
+      "points": {
+        "type": "int",
+        "format": "decimalPattern"
+      },
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "tierSoon": "You'll be here soon",
+  "tierUnlocked": "Unlocked",
+  "challengeCount": "{progress}/{goal}",
+  "@challengeCount": {
+    "placeholders": {
+      "progress": {
+        "type": "int"
+      },
+      "goal": {
+        "type": "int"
+      }
+    }
+  },
+  "challengePoints": "{points} pts",
+  "@challengePoints": {
+    "placeholders": {
+      "points": {
+        "type": "int"
+      }
+    }
+  }
 }

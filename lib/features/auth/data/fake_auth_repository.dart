@@ -6,7 +6,6 @@ import 'package:j_donuts_app/features/auth/data/session_storage.dart';
 import 'package:j_donuts_app/features/auth/domain/auth_repository.dart';
 import 'package:j_donuts_app/features/auth/domain/user.dart';
 
-// Fake backend: ~1s delay, OTP is always [123456].
 class FakeAuthRepository implements AuthRepository {
   FakeAuthRepository({
     required AppDatabase database,

@@ -5,16 +5,17 @@ import 'package:j_donuts_app/features/home/domain/home_banner.dart';
 import 'package:j_donuts_app/features/home/domain/shop.dart';
 import 'package:j_donuts_app/features/member/domain/member.dart';
 import 'package:j_donuts_app/features/product/domain/product.dart';
+import 'package:j_donuts_app/features/rewards/domain/challenge.dart';
 
-// Writes a whole catalog snapshot in one transaction, so watchers see either
-// the old data or the new data, never a half-written mix.
 class CatalogStore {
   const CatalogStore(this._database);
 
   final AppDatabase _database;
 
+  // v2 installs have no challenges yet, so seed again
   Future<bool> isEmpty() async =>
-      await _database.products.count().getSingle() == 0;
+      await _database.products.count().getSingle() == 0 ||
+      await _database.challenges.count().getSingle() == 0;
 
   Future<void> save(Catalog catalog) => _database.transaction(() async {
     await _clear();
@@ -24,7 +25,11 @@ class CatalogStore {
         ..insertAll(_database.banners, _indexed(catalog.banners, _bannerRow))
         ..insertAll(_database.shops, _indexed(catalog.shops, _shopRow))
         ..insertAll(_database.sectionItems, _sectionRows(catalog))
-        ..insert(_database.members, _memberRow(catalog.member));
+        ..insert(_database.members, _memberRow(catalog.member))
+        ..insertAll(
+          _database.challenges,
+          _indexed(catalog.challenges, _challengeRow),
+        );
     });
   });
 
@@ -34,6 +39,7 @@ class CatalogStore {
     await _database.delete(_database.banners).go();
     await _database.delete(_database.shops).go();
     await _database.delete(_database.members).go();
+    await _database.delete(_database.challenges).go();
   }
 
   Iterable<R> _indexed<T, R>(List<T> items, R Function(T, int) toRow) =>
@@ -84,7 +90,20 @@ class CatalogStore {
     tier: member.tier,
     points: member.points,
     nextTierPoints: member.nextTierPoints,
+    tierStartPoints: Value(member.tierStartPoints),
     notificationCount: member.notificationCount,
     rewardCount: member.rewardCount,
   );
+
+  ChallengesCompanion _challengeRow(Challenge challenge, int position) =>
+      ChallengesCompanion.insert(
+        id: challenge.id,
+        tab: challenge.tab,
+        title: challenge.title,
+        points: challenge.points,
+        progress: challenge.progress,
+        goal: challenge.goal,
+        art: challenge.art,
+        position: position,
+      );
 }

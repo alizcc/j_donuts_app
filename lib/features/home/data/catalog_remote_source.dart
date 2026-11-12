@@ -7,8 +7,6 @@ abstract interface class CatalogRemoteSource {
   Future<Catalog> fetchCatalog();
 }
 
-// Stands in for a real API: waits like a network call, then returns a
-// bundled "server" response that differs a little from the seed.
 class FakeCatalogRemoteSource implements CatalogRemoteSource {
   FakeCatalogRemoteSource({AssetBundle? bundle})
     : _bundle = bundle ?? rootBundle;

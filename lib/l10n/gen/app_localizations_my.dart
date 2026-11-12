@@ -269,4 +269,62 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get productError => 'ဤပစ္စည်းကို ဖွင့်၍မရပါ';
+
+  @override
+  String get rewardsTitle => 'J\' Donuts ဆုလာဘ်များ';
+
+  @override
+  String get myRewards => 'ဆုလာဘ်';
+
+  @override
+  String rewardPoints(int points) {
+    final intl.NumberFormat pointsNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String pointsString = pointsNumberFormat.format(points);
+
+    return '$pointsString';
+  }
+
+  @override
+  String get tabEatMore => 'များများစား များများရ';
+
+  @override
+  String get tabGift => 'လက်ဆောင်';
+
+  @override
+  String get earnAction => 'ရယူမည်';
+
+  @override
+  String get rewardsError => 'ဆုလာဘ်များကို ဖွင့်၍မရပါ';
+
+  @override
+  String get totalPoints => 'စုစုပေါင်းမှတ်';
+
+  @override
+  String get tierHereNow => 'လက်ရှိအဆင့်';
+
+  @override
+  String tierRemaining(int points, String tier) {
+    final intl.NumberFormat pointsNumberFormat =
+        intl.NumberFormat.decimalPattern(localeName);
+    final String pointsString = pointsNumberFormat.format(points);
+
+    return '$tier ဖြစ်ရန် $pointsString မှတ် လိုသေးသည်';
+  }
+
+  @override
+  String get tierSoon => 'မကြာမီ ရောက်ရှိမည်';
+
+  @override
+  String get tierUnlocked => 'ရရှိပြီး';
+
+  @override
+  String challengeCount(int progress, int goal) {
+    return '$progress/$goal';
+  }
+
+  @override
+  String challengePoints(int points) {
+    return '$points မှတ်';
+  }
 }

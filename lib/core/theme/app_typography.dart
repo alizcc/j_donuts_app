@@ -1,14 +1,11 @@
 import 'package:flutter/painting.dart';
 import 'package:j_donuts_app/core/theme/app_colors.dart';
 
-/// Font families bundled under `assets/fonts`. The designs use Fredoka
-/// throughout.
 abstract final class AppFonts {
   static const String display = 'Fredoka';
   static const String body = 'Fredoka';
 }
 
-/// Named text styles. Headings are SemiBold, body Regular.
 abstract final class AppTypography {
   static const TextStyle display = TextStyle(
     fontFamily: AppFonts.display,

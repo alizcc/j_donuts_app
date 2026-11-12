@@ -4,6 +4,7 @@
     "tier": "silver",
     "points": 680000,
     "nextTierPoints": 680500,
+    "tierStartPoints": 678800,
     "notificationCount": 2,
     "rewardCount": 3
   },
@@ -157,6 +158,53 @@
       "name": "Downtown J'Donut",
       "address": "108 Sule Pagoda Road, Kyauktada Township, Yangon.",
       "color": "cyan"
+    }
+  ],
+  "challenges": [
+    {
+      "id": "c_coco_box",
+      "tab": "eat",
+      "title": "Eat 4 Coco donuts",
+      "points": 100,
+      "progress": 4,
+      "goal": 4,
+      "art": "donut"
+    },
+    {
+      "id": "c_coco_week",
+      "tab": "eat",
+      "title": "Eat 4 Coco donuts",
+      "points": 100,
+      "progress": 1,
+      "goal": 4,
+      "art": "donut"
+    },
+    {
+      "id": "c_americano",
+      "tab": "eat",
+      "title": "Drink 12 cups americano",
+      "points": 100,
+      "progress": 9,
+      "goal": 12,
+      "art": "coffee"
+    },
+    {
+      "id": "c_gift_box",
+      "tab": "gift",
+      "title": "Gift 4 donut boxes",
+      "points": 150,
+      "progress": 2,
+      "goal": 4,
+      "art": "donut"
+    },
+    {
+      "id": "c_gift_coffee",
+      "tab": "gift",
+      "title": "Treat 12 friends to coffee",
+      "points": 150,
+      "progress": 3,
+      "goal": 12,
+      "art": "coffee"
     }
   ]
 }

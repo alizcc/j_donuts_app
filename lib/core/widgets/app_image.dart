@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:j_donuts_app/core/theme/app_colors.dart';
 import 'package:j_donuts_app/core/widgets/skeleton.dart';
 
-// Network image cached on disk. When the download fails (offline, first
-// launch) it falls back to the copy bundled with the app.
 class AppImage extends StatelessWidget {
   const AppImage({
     required this.url,

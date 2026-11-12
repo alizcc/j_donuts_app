@@ -1914,6 +1914,18 @@ class $MembersTable extends Members with TableInfo<$MembersTable, MemberRow> {
     type: DriftSqlType.int,
     requiredDuringInsert: true,
   );
+  static const VerificationMeta _tierStartPointsMeta = const VerificationMeta(
+    'tierStartPoints',
+  );
+  @override
+  late final GeneratedColumn<int> tierStartPoints = GeneratedColumn<int>(
+    'tier_start_points',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: false,
+    defaultValue: const Constant(0),
+  );
   static const VerificationMeta _notificationCountMeta = const VerificationMeta(
     'notificationCount',
   );
@@ -1942,6 +1954,7 @@ class $MembersTable extends Members with TableInfo<$MembersTable, MemberRow> {
     tier,
     points,
     nextTierPoints,
+    tierStartPoints,
     notificationCount,
     rewardCount,
   ];
@@ -1980,6 +1993,15 @@ class $MembersTable extends Members with TableInfo<$MembersTable, MemberRow> {
       );
     } else if (isInserting) {
       context.missing(_nextTierPointsMeta);
+    }
+    if (data.containsKey('tier_start_points')) {
+      context.handle(
+        _tierStartPointsMeta,
+        tierStartPoints.isAcceptableOrUnknown(
+          data['tier_start_points']!,
+          _tierStartPointsMeta,
+        ),
+      );
     }
     if (data.containsKey('notification_count')) {
       context.handle(
@@ -2030,6 +2052,10 @@ class $MembersTable extends Members with TableInfo<$MembersTable, MemberRow> {
         DriftSqlType.int,
         data['${effectivePrefix}next_tier_points'],
       )!,
+      tierStartPoints: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}tier_start_points'],
+      )!,
       notificationCount: attachedDatabase.typeMapping.read(
         DriftSqlType.int,
         data['${effectivePrefix}notification_count'],
@@ -2055,6 +2081,7 @@ class MemberRow extends DataClass implements Insertable<MemberRow> {
   final MemberTier tier;
   final int points;
   final int nextTierPoints;
+  final int tierStartPoints;
   final int notificationCount;
   final int rewardCount;
   const MemberRow({
@@ -2062,6 +2089,7 @@ class MemberRow extends DataClass implements Insertable<MemberRow> {
     required this.tier,
     required this.points,
     required this.nextTierPoints,
+    required this.tierStartPoints,
     required this.notificationCount,
     required this.rewardCount,
   });
@@ -2074,6 +2102,7 @@ class MemberRow extends DataClass implements Insertable<MemberRow> {
     }
     map['points'] = Variable<int>(points);
     map['next_tier_points'] = Variable<int>(nextTierPoints);
+    map['tier_start_points'] = Variable<int>(tierStartPoints);
     map['notification_count'] = Variable<int>(notificationCount);
     map['reward_count'] = Variable<int>(rewardCount);
     return map;
@@ -2085,6 +2114,7 @@ class MemberRow extends DataClass implements Insertable<MemberRow> {
       tier: Value(tier),
       points: Value(points),
       nextTierPoints: Value(nextTierPoints),
+      tierStartPoints: Value(tierStartPoints),
       notificationCount: Value(notificationCount),
       rewardCount: Value(rewardCount),
     );
@@ -2102,6 +2132,7 @@ class MemberRow extends DataClass implements Insertable<MemberRow> {
       ),
       points: serializer.fromJson<int>(json['points']),
       nextTierPoints: serializer.fromJson<int>(json['nextTierPoints']),
+      tierStartPoints: serializer.fromJson<int>(json['tierStartPoints']),
       notificationCount: serializer.fromJson<int>(json['notificationCount']),
       rewardCount: serializer.fromJson<int>(json['rewardCount']),
     );
@@ -2116,6 +2147,7 @@ class MemberRow extends DataClass implements Insertable<MemberRow> {
       ),
       'points': serializer.toJson<int>(points),
       'nextTierPoints': serializer.toJson<int>(nextTierPoints),
+      'tierStartPoints': serializer.toJson<int>(tierStartPoints),
       'notificationCount': serializer.toJson<int>(notificationCount),
       'rewardCount': serializer.toJson<int>(rewardCount),
     };
@@ -2126,6 +2158,7 @@ class MemberRow extends DataClass implements Insertable<MemberRow> {
     MemberTier? tier,
     int? points,
     int? nextTierPoints,
+    int? tierStartPoints,
     int? notificationCount,
     int? rewardCount,
   }) => MemberRow(
@@ -2133,6 +2166,7 @@ class MemberRow extends DataClass implements Insertable<MemberRow> {
     tier: tier ?? this.tier,
     points: points ?? this.points,
     nextTierPoints: nextTierPoints ?? this.nextTierPoints,
+    tierStartPoints: tierStartPoints ?? this.tierStartPoints,
     notificationCount: notificationCount ?? this.notificationCount,
     rewardCount: rewardCount ?? this.rewardCount,
   );
@@ -2144,6 +2178,9 @@ class MemberRow extends DataClass implements Insertable<MemberRow> {
       nextTierPoints: data.nextTierPoints.present
           ? data.nextTierPoints.value
           : this.nextTierPoints,
+      tierStartPoints: data.tierStartPoints.present
+          ? data.tierStartPoints.value
+          : this.tierStartPoints,
       notificationCount: data.notificationCount.present
           ? data.notificationCount.value
           : this.notificationCount,
@@ -2160,6 +2197,7 @@ class MemberRow extends DataClass implements Insertable<MemberRow> {
           ..write('tier: $tier, ')
           ..write('points: $points, ')
           ..write('nextTierPoints: $nextTierPoints, ')
+          ..write('tierStartPoints: $tierStartPoints, ')
           ..write('notificationCount: $notificationCount, ')
           ..write('rewardCount: $rewardCount')
           ..write(')'))
@@ -2172,6 +2210,7 @@ class MemberRow extends DataClass implements Insertable<MemberRow> {
     tier,
     points,
     nextTierPoints,
+    tierStartPoints,
     notificationCount,
     rewardCount,
   );
@@ -2183,6 +2222,7 @@ class MemberRow extends DataClass implements Insertable<MemberRow> {
           other.tier == this.tier &&
           other.points == this.points &&
           other.nextTierPoints == this.nextTierPoints &&
+          other.tierStartPoints == this.tierStartPoints &&
           other.notificationCount == this.notificationCount &&
           other.rewardCount == this.rewardCount);
 }
@@ -2192,6 +2232,7 @@ class MembersCompanion extends UpdateCompanion<MemberRow> {
   final Value<MemberTier> tier;
   final Value<int> points;
   final Value<int> nextTierPoints;
+  final Value<int> tierStartPoints;
   final Value<int> notificationCount;
   final Value<int> rewardCount;
   final Value<int> rowid;
@@ -2200,6 +2241,7 @@ class MembersCompanion extends UpdateCompanion<MemberRow> {
     this.tier = const Value.absent(),
     this.points = const Value.absent(),
     this.nextTierPoints = const Value.absent(),
+    this.tierStartPoints = const Value.absent(),
     this.notificationCount = const Value.absent(),
     this.rewardCount = const Value.absent(),
     this.rowid = const Value.absent(),
@@ -2209,6 +2251,7 @@ class MembersCompanion extends UpdateCompanion<MemberRow> {
     required MemberTier tier,
     required int points,
     required int nextTierPoints,
+    this.tierStartPoints = const Value.absent(),
     required int notificationCount,
     required int rewardCount,
     this.rowid = const Value.absent(),
@@ -2223,6 +2266,7 @@ class MembersCompanion extends UpdateCompanion<MemberRow> {
     Expression<String>? tier,
     Expression<int>? points,
     Expression<int>? nextTierPoints,
+    Expression<int>? tierStartPoints,
     Expression<int>? notificationCount,
     Expression<int>? rewardCount,
     Expression<int>? rowid,
@@ -2232,6 +2276,7 @@ class MembersCompanion extends UpdateCompanion<MemberRow> {
       if (tier != null) 'tier': tier,
       if (points != null) 'points': points,
       if (nextTierPoints != null) 'next_tier_points': nextTierPoints,
+      if (tierStartPoints != null) 'tier_start_points': tierStartPoints,
       if (notificationCount != null) 'notification_count': notificationCount,
       if (rewardCount != null) 'reward_count': rewardCount,
       if (rowid != null) 'rowid': rowid,
@@ -2243,6 +2288,7 @@ class MembersCompanion extends UpdateCompanion<MemberRow> {
     Value<MemberTier>? tier,
     Value<int>? points,
     Value<int>? nextTierPoints,
+    Value<int>? tierStartPoints,
     Value<int>? notificationCount,
     Value<int>? rewardCount,
     Value<int>? rowid,
@@ -2252,6 +2298,7 @@ class MembersCompanion extends UpdateCompanion<MemberRow> {
       tier: tier ?? this.tier,
       points: points ?? this.points,
       nextTierPoints: nextTierPoints ?? this.nextTierPoints,
+      tierStartPoints: tierStartPoints ?? this.tierStartPoints,
       notificationCount: notificationCount ?? this.notificationCount,
       rewardCount: rewardCount ?? this.rewardCount,
       rowid: rowid ?? this.rowid,
@@ -2275,6 +2322,9 @@ class MembersCompanion extends UpdateCompanion<MemberRow> {
     if (nextTierPoints.present) {
       map['next_tier_points'] = Variable<int>(nextTierPoints.value);
     }
+    if (tierStartPoints.present) {
+      map['tier_start_points'] = Variable<int>(tierStartPoints.value);
+    }
     if (notificationCount.present) {
       map['notification_count'] = Variable<int>(notificationCount.value);
     }
@@ -2294,8 +2344,512 @@ class MembersCompanion extends UpdateCompanion<MemberRow> {
           ..write('tier: $tier, ')
           ..write('points: $points, ')
           ..write('nextTierPoints: $nextTierPoints, ')
+          ..write('tierStartPoints: $tierStartPoints, ')
           ..write('notificationCount: $notificationCount, ')
           ..write('rewardCount: $rewardCount, ')
+          ..write('rowid: $rowid')
+          ..write(')'))
+        .toString();
+  }
+}
+
+class $ChallengesTable extends Challenges
+    with TableInfo<$ChallengesTable, ChallengeRow> {
+  @override
+  final GeneratedDatabase attachedDatabase;
+  final String? _alias;
+  $ChallengesTable(this.attachedDatabase, [this._alias]);
+  static const VerificationMeta _idMeta = const VerificationMeta('id');
+  @override
+  late final GeneratedColumn<String> id = GeneratedColumn<String>(
+    'id',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  @override
+  late final GeneratedColumnWithTypeConverter<RewardTab, String> tab =
+      GeneratedColumn<String>(
+        'tab',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      ).withConverter<RewardTab>($ChallengesTable.$convertertab);
+  static const VerificationMeta _titleMeta = const VerificationMeta('title');
+  @override
+  late final GeneratedColumn<String> title = GeneratedColumn<String>(
+    'title',
+    aliasedName,
+    false,
+    type: DriftSqlType.string,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _pointsMeta = const VerificationMeta('points');
+  @override
+  late final GeneratedColumn<int> points = GeneratedColumn<int>(
+    'points',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _progressMeta = const VerificationMeta(
+    'progress',
+  );
+  @override
+  late final GeneratedColumn<int> progress = GeneratedColumn<int>(
+    'progress',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  static const VerificationMeta _goalMeta = const VerificationMeta('goal');
+  @override
+  late final GeneratedColumn<int> goal = GeneratedColumn<int>(
+    'goal',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  late final GeneratedColumnWithTypeConverter<ChallengeArt, String> art =
+      GeneratedColumn<String>(
+        'art',
+        aliasedName,
+        false,
+        type: DriftSqlType.string,
+        requiredDuringInsert: true,
+      ).withConverter<ChallengeArt>($ChallengesTable.$converterart);
+  static const VerificationMeta _positionMeta = const VerificationMeta(
+    'position',
+  );
+  @override
+  late final GeneratedColumn<int> position = GeneratedColumn<int>(
+    'position',
+    aliasedName,
+    false,
+    type: DriftSqlType.int,
+    requiredDuringInsert: true,
+  );
+  @override
+  List<GeneratedColumn> get $columns => [
+    id,
+    tab,
+    title,
+    points,
+    progress,
+    goal,
+    art,
+    position,
+  ];
+  @override
+  String get aliasedName => _alias ?? actualTableName;
+  @override
+  String get actualTableName => $name;
+  static const String $name = 'challenges';
+  @override
+  VerificationContext validateIntegrity(
+    Insertable<ChallengeRow> instance, {
+    bool isInserting = false,
+  }) {
+    final context = VerificationContext();
+    final data = instance.toColumns(true);
+    if (data.containsKey('id')) {
+      context.handle(_idMeta, id.isAcceptableOrUnknown(data['id']!, _idMeta));
+    } else if (isInserting) {
+      context.missing(_idMeta);
+    }
+    if (data.containsKey('title')) {
+      context.handle(
+        _titleMeta,
+        title.isAcceptableOrUnknown(data['title']!, _titleMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_titleMeta);
+    }
+    if (data.containsKey('points')) {
+      context.handle(
+        _pointsMeta,
+        points.isAcceptableOrUnknown(data['points']!, _pointsMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_pointsMeta);
+    }
+    if (data.containsKey('progress')) {
+      context.handle(
+        _progressMeta,
+        progress.isAcceptableOrUnknown(data['progress']!, _progressMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_progressMeta);
+    }
+    if (data.containsKey('goal')) {
+      context.handle(
+        _goalMeta,
+        goal.isAcceptableOrUnknown(data['goal']!, _goalMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_goalMeta);
+    }
+    if (data.containsKey('position')) {
+      context.handle(
+        _positionMeta,
+        position.isAcceptableOrUnknown(data['position']!, _positionMeta),
+      );
+    } else if (isInserting) {
+      context.missing(_positionMeta);
+    }
+    return context;
+  }
+
+  @override
+  Set<GeneratedColumn> get $primaryKey => {id};
+  @override
+  ChallengeRow map(Map<String, dynamic> data, {String? tablePrefix}) {
+    final effectivePrefix = tablePrefix != null ? '$tablePrefix.' : '';
+    return ChallengeRow(
+      id: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}id'],
+      )!,
+      tab: $ChallengesTable.$convertertab.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}tab'],
+        )!,
+      ),
+      title: attachedDatabase.typeMapping.read(
+        DriftSqlType.string,
+        data['${effectivePrefix}title'],
+      )!,
+      points: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}points'],
+      )!,
+      progress: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}progress'],
+      )!,
+      goal: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}goal'],
+      )!,
+      art: $ChallengesTable.$converterart.fromSql(
+        attachedDatabase.typeMapping.read(
+          DriftSqlType.string,
+          data['${effectivePrefix}art'],
+        )!,
+      ),
+      position: attachedDatabase.typeMapping.read(
+        DriftSqlType.int,
+        data['${effectivePrefix}position'],
+      )!,
+    );
+  }
+
+  @override
+  $ChallengesTable createAlias(String alias) {
+    return $ChallengesTable(attachedDatabase, alias);
+  }
+
+  static JsonTypeConverter2<RewardTab, String, String> $convertertab =
+      const EnumNameConverter<RewardTab>(RewardTab.values);
+  static JsonTypeConverter2<ChallengeArt, String, String> $converterart =
+      const EnumNameConverter<ChallengeArt>(ChallengeArt.values);
+}
+
+class ChallengeRow extends DataClass implements Insertable<ChallengeRow> {
+  final String id;
+  final RewardTab tab;
+  final String title;
+  final int points;
+  final int progress;
+  final int goal;
+  final ChallengeArt art;
+  final int position;
+  const ChallengeRow({
+    required this.id,
+    required this.tab,
+    required this.title,
+    required this.points,
+    required this.progress,
+    required this.goal,
+    required this.art,
+    required this.position,
+  });
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    map['id'] = Variable<String>(id);
+    {
+      map['tab'] = Variable<String>($ChallengesTable.$convertertab.toSql(tab));
+    }
+    map['title'] = Variable<String>(title);
+    map['points'] = Variable<int>(points);
+    map['progress'] = Variable<int>(progress);
+    map['goal'] = Variable<int>(goal);
+    {
+      map['art'] = Variable<String>($ChallengesTable.$converterart.toSql(art));
+    }
+    map['position'] = Variable<int>(position);
+    return map;
+  }
+
+  ChallengesCompanion toCompanion(bool nullToAbsent) {
+    return ChallengesCompanion(
+      id: Value(id),
+      tab: Value(tab),
+      title: Value(title),
+      points: Value(points),
+      progress: Value(progress),
+      goal: Value(goal),
+      art: Value(art),
+      position: Value(position),
+    );
+  }
+
+  factory ChallengeRow.fromJson(
+    Map<String, dynamic> json, {
+    ValueSerializer? serializer,
+  }) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return ChallengeRow(
+      id: serializer.fromJson<String>(json['id']),
+      tab: $ChallengesTable.$convertertab.fromJson(
+        serializer.fromJson<String>(json['tab']),
+      ),
+      title: serializer.fromJson<String>(json['title']),
+      points: serializer.fromJson<int>(json['points']),
+      progress: serializer.fromJson<int>(json['progress']),
+      goal: serializer.fromJson<int>(json['goal']),
+      art: $ChallengesTable.$converterart.fromJson(
+        serializer.fromJson<String>(json['art']),
+      ),
+      position: serializer.fromJson<int>(json['position']),
+    );
+  }
+  @override
+  Map<String, dynamic> toJson({ValueSerializer? serializer}) {
+    serializer ??= driftRuntimeOptions.defaultSerializer;
+    return <String, dynamic>{
+      'id': serializer.toJson<String>(id),
+      'tab': serializer.toJson<String>(
+        $ChallengesTable.$convertertab.toJson(tab),
+      ),
+      'title': serializer.toJson<String>(title),
+      'points': serializer.toJson<int>(points),
+      'progress': serializer.toJson<int>(progress),
+      'goal': serializer.toJson<int>(goal),
+      'art': serializer.toJson<String>(
+        $ChallengesTable.$converterart.toJson(art),
+      ),
+      'position': serializer.toJson<int>(position),
+    };
+  }
+
+  ChallengeRow copyWith({
+    String? id,
+    RewardTab? tab,
+    String? title,
+    int? points,
+    int? progress,
+    int? goal,
+    ChallengeArt? art,
+    int? position,
+  }) => ChallengeRow(
+    id: id ?? this.id,
+    tab: tab ?? this.tab,
+    title: title ?? this.title,
+    points: points ?? this.points,
+    progress: progress ?? this.progress,
+    goal: goal ?? this.goal,
+    art: art ?? this.art,
+    position: position ?? this.position,
+  );
+  ChallengeRow copyWithCompanion(ChallengesCompanion data) {
+    return ChallengeRow(
+      id: data.id.present ? data.id.value : this.id,
+      tab: data.tab.present ? data.tab.value : this.tab,
+      title: data.title.present ? data.title.value : this.title,
+      points: data.points.present ? data.points.value : this.points,
+      progress: data.progress.present ? data.progress.value : this.progress,
+      goal: data.goal.present ? data.goal.value : this.goal,
+      art: data.art.present ? data.art.value : this.art,
+      position: data.position.present ? data.position.value : this.position,
+    );
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ChallengeRow(')
+          ..write('id: $id, ')
+          ..write('tab: $tab, ')
+          ..write('title: $title, ')
+          ..write('points: $points, ')
+          ..write('progress: $progress, ')
+          ..write('goal: $goal, ')
+          ..write('art: $art, ')
+          ..write('position: $position')
+          ..write(')'))
+        .toString();
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(id, tab, title, points, progress, goal, art, position);
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      (other is ChallengeRow &&
+          other.id == this.id &&
+          other.tab == this.tab &&
+          other.title == this.title &&
+          other.points == this.points &&
+          other.progress == this.progress &&
+          other.goal == this.goal &&
+          other.art == this.art &&
+          other.position == this.position);
+}
+
+class ChallengesCompanion extends UpdateCompanion<ChallengeRow> {
+  final Value<String> id;
+  final Value<RewardTab> tab;
+  final Value<String> title;
+  final Value<int> points;
+  final Value<int> progress;
+  final Value<int> goal;
+  final Value<ChallengeArt> art;
+  final Value<int> position;
+  final Value<int> rowid;
+  const ChallengesCompanion({
+    this.id = const Value.absent(),
+    this.tab = const Value.absent(),
+    this.title = const Value.absent(),
+    this.points = const Value.absent(),
+    this.progress = const Value.absent(),
+    this.goal = const Value.absent(),
+    this.art = const Value.absent(),
+    this.position = const Value.absent(),
+    this.rowid = const Value.absent(),
+  });
+  ChallengesCompanion.insert({
+    required String id,
+    required RewardTab tab,
+    required String title,
+    required int points,
+    required int progress,
+    required int goal,
+    required ChallengeArt art,
+    required int position,
+    this.rowid = const Value.absent(),
+  }) : id = Value(id),
+       tab = Value(tab),
+       title = Value(title),
+       points = Value(points),
+       progress = Value(progress),
+       goal = Value(goal),
+       art = Value(art),
+       position = Value(position);
+  static Insertable<ChallengeRow> custom({
+    Expression<String>? id,
+    Expression<String>? tab,
+    Expression<String>? title,
+    Expression<int>? points,
+    Expression<int>? progress,
+    Expression<int>? goal,
+    Expression<String>? art,
+    Expression<int>? position,
+    Expression<int>? rowid,
+  }) {
+    return RawValuesInsertable({
+      if (id != null) 'id': id,
+      if (tab != null) 'tab': tab,
+      if (title != null) 'title': title,
+      if (points != null) 'points': points,
+      if (progress != null) 'progress': progress,
+      if (goal != null) 'goal': goal,
+      if (art != null) 'art': art,
+      if (position != null) 'position': position,
+      if (rowid != null) 'rowid': rowid,
+    });
+  }
+
+  ChallengesCompanion copyWith({
+    Value<String>? id,
+    Value<RewardTab>? tab,
+    Value<String>? title,
+    Value<int>? points,
+    Value<int>? progress,
+    Value<int>? goal,
+    Value<ChallengeArt>? art,
+    Value<int>? position,
+    Value<int>? rowid,
+  }) {
+    return ChallengesCompanion(
+      id: id ?? this.id,
+      tab: tab ?? this.tab,
+      title: title ?? this.title,
+      points: points ?? this.points,
+      progress: progress ?? this.progress,
+      goal: goal ?? this.goal,
+      art: art ?? this.art,
+      position: position ?? this.position,
+      rowid: rowid ?? this.rowid,
+    );
+  }
+
+  @override
+  Map<String, Expression> toColumns(bool nullToAbsent) {
+    final map = <String, Expression>{};
+    if (id.present) {
+      map['id'] = Variable<String>(id.value);
+    }
+    if (tab.present) {
+      map['tab'] = Variable<String>(
+        $ChallengesTable.$convertertab.toSql(tab.value),
+      );
+    }
+    if (title.present) {
+      map['title'] = Variable<String>(title.value);
+    }
+    if (points.present) {
+      map['points'] = Variable<int>(points.value);
+    }
+    if (progress.present) {
+      map['progress'] = Variable<int>(progress.value);
+    }
+    if (goal.present) {
+      map['goal'] = Variable<int>(goal.value);
+    }
+    if (art.present) {
+      map['art'] = Variable<String>(
+        $ChallengesTable.$converterart.toSql(art.value),
+      );
+    }
+    if (position.present) {
+      map['position'] = Variable<int>(position.value);
+    }
+    if (rowid.present) {
+      map['rowid'] = Variable<int>(rowid.value);
+    }
+    return map;
+  }
+
+  @override
+  String toString() {
+    return (StringBuffer('ChallengesCompanion(')
+          ..write('id: $id, ')
+          ..write('tab: $tab, ')
+          ..write('title: $title, ')
+          ..write('points: $points, ')
+          ..write('progress: $progress, ')
+          ..write('goal: $goal, ')
+          ..write('art: $art, ')
+          ..write('position: $position, ')
           ..write('rowid: $rowid')
           ..write(')'))
         .toString();
@@ -2311,6 +2865,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
   late final $ShopsTable shops = $ShopsTable(this);
   late final $SectionItemsTable sectionItems = $SectionItemsTable(this);
   late final $MembersTable members = $MembersTable(this);
+  late final $ChallengesTable challenges = $ChallengesTable(this);
   @override
   Iterable<TableInfo<Table, Object?>> get allTables =>
       allSchemaEntities.whereType<TableInfo<Table, Object?>>();
@@ -2322,6 +2877,7 @@ abstract class _$AppDatabase extends GeneratedDatabase {
     shops,
     sectionItems,
     members,
+    challenges,
   ];
 }
 
@@ -3381,6 +3937,7 @@ typedef $$MembersTableCreateCompanionBuilder =
       required MemberTier tier,
       required int points,
       required int nextTierPoints,
+      Value<int> tierStartPoints,
       required int notificationCount,
       required int rewardCount,
       Value<int> rowid,
@@ -3391,6 +3948,7 @@ typedef $$MembersTableUpdateCompanionBuilder =
       Value<MemberTier> tier,
       Value<int> points,
       Value<int> nextTierPoints,
+      Value<int> tierStartPoints,
       Value<int> notificationCount,
       Value<int> rewardCount,
       Value<int> rowid,
@@ -3423,6 +3981,11 @@ class $$MembersTableFilterComposer
 
   ColumnFilters<int> get nextTierPoints => $composableBuilder(
     column: $table.nextTierPoints,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get tierStartPoints => $composableBuilder(
+    column: $table.tierStartPoints,
     builder: (column) => ColumnFilters(column),
   );
 
@@ -3466,6 +4029,11 @@ class $$MembersTableOrderingComposer
     builder: (column) => ColumnOrderings(column),
   );
 
+  ColumnOrderings<int> get tierStartPoints => $composableBuilder(
+    column: $table.tierStartPoints,
+    builder: (column) => ColumnOrderings(column),
+  );
+
   ColumnOrderings<int> get notificationCount => $composableBuilder(
     column: $table.notificationCount,
     builder: (column) => ColumnOrderings(column),
@@ -3497,6 +4065,11 @@ class $$MembersTableAnnotationComposer
 
   GeneratedColumn<int> get nextTierPoints => $composableBuilder(
     column: $table.nextTierPoints,
+    builder: (column) => column,
+  );
+
+  GeneratedColumn<int> get tierStartPoints => $composableBuilder(
+    column: $table.tierStartPoints,
     builder: (column) => column,
   );
 
@@ -3543,6 +4116,7 @@ class $$MembersTableTableManager
                 Value<MemberTier> tier = const Value.absent(),
                 Value<int> points = const Value.absent(),
                 Value<int> nextTierPoints = const Value.absent(),
+                Value<int> tierStartPoints = const Value.absent(),
                 Value<int> notificationCount = const Value.absent(),
                 Value<int> rewardCount = const Value.absent(),
                 Value<int> rowid = const Value.absent(),
@@ -3551,6 +4125,7 @@ class $$MembersTableTableManager
                 tier: tier,
                 points: points,
                 nextTierPoints: nextTierPoints,
+                tierStartPoints: tierStartPoints,
                 notificationCount: notificationCount,
                 rewardCount: rewardCount,
                 rowid: rowid,
@@ -3561,6 +4136,7 @@ class $$MembersTableTableManager
                 required MemberTier tier,
                 required int points,
                 required int nextTierPoints,
+                Value<int> tierStartPoints = const Value.absent(),
                 required int notificationCount,
                 required int rewardCount,
                 Value<int> rowid = const Value.absent(),
@@ -3569,6 +4145,7 @@ class $$MembersTableTableManager
                 tier: tier,
                 points: points,
                 nextTierPoints: nextTierPoints,
+                tierStartPoints: tierStartPoints,
                 notificationCount: notificationCount,
                 rewardCount: rewardCount,
                 rowid: rowid,
@@ -3604,6 +4181,274 @@ typedef $$MembersTableProcessedTableManager =
       MemberRow,
       PrefetchHooks Function()
     >;
+typedef $$ChallengesTableCreateCompanionBuilder =
+    ChallengesCompanion Function({
+      required String id,
+      required RewardTab tab,
+      required String title,
+      required int points,
+      required int progress,
+      required int goal,
+      required ChallengeArt art,
+      required int position,
+      Value<int> rowid,
+    });
+typedef $$ChallengesTableUpdateCompanionBuilder =
+    ChallengesCompanion Function({
+      Value<String> id,
+      Value<RewardTab> tab,
+      Value<String> title,
+      Value<int> points,
+      Value<int> progress,
+      Value<int> goal,
+      Value<ChallengeArt> art,
+      Value<int> position,
+      Value<int> rowid,
+    });
+
+class $$ChallengesTableFilterComposer
+    extends Composer<_$AppDatabase, $ChallengesTable> {
+  $$ChallengesTableFilterComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnFilters<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<RewardTab, RewardTab, String> get tab =>
+      $composableBuilder(
+        column: $table.tab,
+        builder: (column) => ColumnWithTypeConverterFilters(column),
+      );
+
+  ColumnFilters<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get points => $composableBuilder(
+    column: $table.points,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get progress => $composableBuilder(
+    column: $table.progress,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnFilters<int> get goal => $composableBuilder(
+    column: $table.goal,
+    builder: (column) => ColumnFilters(column),
+  );
+
+  ColumnWithTypeConverterFilters<ChallengeArt, ChallengeArt, String> get art =>
+      $composableBuilder(
+        column: $table.art,
+        builder: (column) => ColumnWithTypeConverterFilters(column),
+      );
+
+  ColumnFilters<int> get position => $composableBuilder(
+    column: $table.position,
+    builder: (column) => ColumnFilters(column),
+  );
+}
+
+class $$ChallengesTableOrderingComposer
+    extends Composer<_$AppDatabase, $ChallengesTable> {
+  $$ChallengesTableOrderingComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  ColumnOrderings<String> get id => $composableBuilder(
+    column: $table.id,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get tab => $composableBuilder(
+    column: $table.tab,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get title => $composableBuilder(
+    column: $table.title,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get points => $composableBuilder(
+    column: $table.points,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get progress => $composableBuilder(
+    column: $table.progress,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get goal => $composableBuilder(
+    column: $table.goal,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<String> get art => $composableBuilder(
+    column: $table.art,
+    builder: (column) => ColumnOrderings(column),
+  );
+
+  ColumnOrderings<int> get position => $composableBuilder(
+    column: $table.position,
+    builder: (column) => ColumnOrderings(column),
+  );
+}
+
+class $$ChallengesTableAnnotationComposer
+    extends Composer<_$AppDatabase, $ChallengesTable> {
+  $$ChallengesTableAnnotationComposer({
+    required super.$db,
+    required super.$table,
+    super.joinBuilder,
+    super.$addJoinBuilderToRootComposer,
+    super.$removeJoinBuilderFromRootComposer,
+  });
+  GeneratedColumn<String> get id =>
+      $composableBuilder(column: $table.id, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<RewardTab, String> get tab =>
+      $composableBuilder(column: $table.tab, builder: (column) => column);
+
+  GeneratedColumn<String> get title =>
+      $composableBuilder(column: $table.title, builder: (column) => column);
+
+  GeneratedColumn<int> get points =>
+      $composableBuilder(column: $table.points, builder: (column) => column);
+
+  GeneratedColumn<int> get progress =>
+      $composableBuilder(column: $table.progress, builder: (column) => column);
+
+  GeneratedColumn<int> get goal =>
+      $composableBuilder(column: $table.goal, builder: (column) => column);
+
+  GeneratedColumnWithTypeConverter<ChallengeArt, String> get art =>
+      $composableBuilder(column: $table.art, builder: (column) => column);
+
+  GeneratedColumn<int> get position =>
+      $composableBuilder(column: $table.position, builder: (column) => column);
+}
+
+class $$ChallengesTableTableManager
+    extends
+        RootTableManager<
+          _$AppDatabase,
+          $ChallengesTable,
+          ChallengeRow,
+          $$ChallengesTableFilterComposer,
+          $$ChallengesTableOrderingComposer,
+          $$ChallengesTableAnnotationComposer,
+          $$ChallengesTableCreateCompanionBuilder,
+          $$ChallengesTableUpdateCompanionBuilder,
+          (
+            ChallengeRow,
+            BaseReferences<_$AppDatabase, $ChallengesTable, ChallengeRow>,
+          ),
+          ChallengeRow,
+          PrefetchHooks Function()
+        > {
+  $$ChallengesTableTableManager(_$AppDatabase db, $ChallengesTable table)
+    : super(
+        TableManagerState(
+          db: db,
+          table: table,
+          createFilteringComposer: () =>
+              $$ChallengesTableFilterComposer($db: db, $table: table),
+          createOrderingComposer: () =>
+              $$ChallengesTableOrderingComposer($db: db, $table: table),
+          createComputedFieldComposer: () =>
+              $$ChallengesTableAnnotationComposer($db: db, $table: table),
+          updateCompanionCallback:
+              ({
+                Value<String> id = const Value.absent(),
+                Value<RewardTab> tab = const Value.absent(),
+                Value<String> title = const Value.absent(),
+                Value<int> points = const Value.absent(),
+                Value<int> progress = const Value.absent(),
+                Value<int> goal = const Value.absent(),
+                Value<ChallengeArt> art = const Value.absent(),
+                Value<int> position = const Value.absent(),
+                Value<int> rowid = const Value.absent(),
+              }) => ChallengesCompanion(
+                id: id,
+                tab: tab,
+                title: title,
+                points: points,
+                progress: progress,
+                goal: goal,
+                art: art,
+                position: position,
+                rowid: rowid,
+              ),
+          createCompanionCallback:
+              ({
+                required String id,
+                required RewardTab tab,
+                required String title,
+                required int points,
+                required int progress,
+                required int goal,
+                required ChallengeArt art,
+                required int position,
+                Value<int> rowid = const Value.absent(),
+              }) => ChallengesCompanion.insert(
+                id: id,
+                tab: tab,
+                title: title,
+                points: points,
+                progress: progress,
+                goal: goal,
+                art: art,
+                position: position,
+                rowid: rowid,
+              ),
+          withReferenceMapper: (p0) => p0
+              .map(
+                (e) => (
+                  e.readTable<$ChallengesTable, ChallengeRow>(table),
+                  BaseReferences<_$AppDatabase, $ChallengesTable, ChallengeRow>(
+                    db,
+                    table,
+                    e,
+                  ),
+                ),
+              )
+              .toList(),
+          prefetchHooksCallback: null,
+        ),
+      );
+}
+
+typedef $$ChallengesTableProcessedTableManager =
+    ProcessedTableManager<
+      _$AppDatabase,
+      $ChallengesTable,
+      ChallengeRow,
+      $$ChallengesTableFilterComposer,
+      $$ChallengesTableOrderingComposer,
+      $$ChallengesTableAnnotationComposer,
+      $$ChallengesTableCreateCompanionBuilder,
+      $$ChallengesTableUpdateCompanionBuilder,
+      (
+        ChallengeRow,
+        BaseReferences<_$AppDatabase, $ChallengesTable, ChallengeRow>,
+      ),
+      ChallengeRow,
+      PrefetchHooks Function()
+    >;
 
 class $AppDatabaseManager {
   final _$AppDatabase _db;
@@ -3620,4 +4465,6 @@ class $AppDatabaseManager {
       $$SectionItemsTableTableManager(_db, _db.sectionItems);
   $$MembersTableTableManager get members =>
       $$MembersTableTableManager(_db, _db.members);
+  $$ChallengesTableTableManager get challenges =>
+      $$ChallengesTableTableManager(_db, _db.challenges);
 }

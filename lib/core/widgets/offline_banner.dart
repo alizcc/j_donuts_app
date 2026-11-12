@@ -6,7 +6,6 @@ import 'package:j_donuts_app/core/theme/app_colors.dart';
 import 'package:j_donuts_app/core/theme/app_spacing.dart';
 import 'package:j_donuts_app/core/theme/app_typography.dart';
 
-/// A slim strip that grows open while the device is offline.
 class OfflineBanner extends StatelessWidget {
   const OfflineBanner({required this.isOffline, super.key});
 

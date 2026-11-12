@@ -14,6 +14,7 @@ import 'package:j_donuts_app/features/auth/presentation/screens/phone_screen.dar
 import 'package:j_donuts_app/features/auth/presentation/screens/welcome_screen.dart';
 import 'package:j_donuts_app/features/home/presentation/home_screen.dart';
 import 'package:j_donuts_app/features/product/presentation/product_detail_screen.dart';
+import 'package:j_donuts_app/features/rewards/presentation/rewards_screen.dart';
 import 'package:j_donuts_app/features/settings/presentation/settings_screen.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -89,7 +90,14 @@ GoRouter appRouter(Ref ref) {
               ),
             ],
           ),
-          _tab(AppRoutes.rewards, (l10n) => l10n.navReward),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoutes.rewards,
+                builder: (context, state) => const RewardsScreen(),
+              ),
+            ],
+          ),
           _tab(AppRoutes.scan, (l10n) => l10n.navScan),
           _tab(AppRoutes.wallet, (l10n) => l10n.navWallet),
           StatefulShellBranch(
@@ -106,7 +114,6 @@ GoRouter appRouter(Ref ref) {
   );
 }
 
-/// One bottom-nav tab. [title] picks the tab's name from the translations.
 StatefulShellBranch _tab(
   String path,
   String Function(AppLocalizations l10n) title,

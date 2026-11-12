@@ -33,8 +33,6 @@ abstract final class AppColors {
   static const Color homeHeader = Color(0xFFFFE6D3);
   static const Color purple = Color(0xFF5D5AB8);
 
-  // Banners and shop cards name their colour in data; this maps the name to
-  // a token so no hex value ever lives in the seed JSON or a widget.
   static const Map<String, Color> swatches = {
     'purple': purple,
     'cyan': cyan,
@@ -44,9 +42,19 @@ abstract final class AppColors {
 
   static Color swatch(String name) => swatches[name] ?? cyan;
 
+  static const Color tierBronze = Color(0xFFD08B5B);
   static const Color tierSilver = Color(0xFFB8BCC2);
   static const Color tierGold = Color(0xFFF2CD5C);
   static const Color tierPlatinum = Color(0xFF8FD3EA);
+
+  static const Color coffee = Color(0xFF8B5A3C);
+  static const Color latteCream = Color(0xFFF3E6D3);
+  static const Color pinkLight = Color(0xFFF79DC4);
+  static const Color pinkDeep = Color(0xFFD93A80);
+  static const Color donutDough = Color(0xFFB9783F);
+  static const Color glazeGrey = Color(0xFFF1F2F4);
+  static const Color sprinkleGrey = Color(0xFFD3D6DA);
+  static const List<Color> sprinkles = [cyan, orange, green, purple, white];
 
   static const Color shadow = Color(0x14000000);
   static const Color scrim = Color(0x33000000);
