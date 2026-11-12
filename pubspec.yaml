@@ -57,6 +57,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^4.0.3
+  integration_test:
+    sdk: flutter
   json_serializable: ^6.15.2
   mocktail: ^1.0.5
   
@@ -81,6 +83,7 @@ flutter:
   assets:
     - assets/icons/
     - assets/images/
+    - assets/images/products/
     - assets/seed/
 
   fonts:

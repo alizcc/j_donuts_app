@@ -13,15 +13,6 @@
   "navScan": "Scan",
   "navWallet": "Wallet",
   "navSettings": "Settings",
-  "screenWelcome": "Welcome",
-  "screenProduct": "Product {id}",
-  "@screenProduct": {
-    "placeholders": {
-      "id": {
-        "type": "String"
-      }
-    }
-  },
   "onboardingTitle": "Round food for\nevery mood",
   "letsGetStarted": "Let's get started",
   "alreadyHaveAccount": "Already have an account?",
@@ -84,5 +75,83 @@
       }
     }
   },
-  "logOut": "Log out"
+  "logOut": "Log out",
+  "welcomeTitle": "Welcome to the\nworld of J'donuts",
+  "letsExplore": "Let's explore",
+  "tierBronze": "Bronze",
+  "tierSilver": "Silver",
+  "tierGold": "Gold",
+  "tierPlatinum": "Platinum",
+  "memberTier": "{tier} member",
+  "@memberTier": {
+    "placeholders": {
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "pointsToNextTier": "{points} points left to become {tier} Member",
+  "@pointsToNextTier": {
+    "placeholders": {
+      "points": {
+        "type": "String"
+      },
+      "tier": {
+        "type": "String"
+      }
+    }
+  },
+  "topTierReached": "You're at the top tier",
+  "notificationsTooltip": "Notifications",
+  "seeAllTooltip": "See all",
+  "sectionSeasonal": "Seasonal specials",
+  "sectionPopular": "Popular 🔥",
+  "sectionOrderAgain": "Order again",
+  "discountBadge": "{percent}% off",
+  "@discountBadge": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "shopsTitle": "There {count, plural, =1{is 1 J'Donut shop} other{are {count} J'Donut shops}} near you.",
+  "@shopsTitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "exploreNow": "Explore now",
+  "orderOnline": "Order Online",
+  "sectionEmpty": "Nothing here yet",
+  "sectionError": "Couldn't load this section",
+  "refreshFailed": "Couldn't refresh. Showing saved data.",
+  "newBadge": "New",
+  "priceMmk": "{amount} MMK",
+  "@priceMmk": {
+    "placeholders": {
+      "amount": {
+        "type": "String"
+      }
+    }
+  },
+  "whatsThis": "What's\nthis?",
+  "addToCart": "Add to cart",
+  "addedToCart": "Added {quantity} × {name}",
+  "@addedToCart": {
+    "placeholders": {
+      "quantity": {
+        "type": "int"
+      },
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "decreaseQuantity": "Decrease quantity",
+  "increaseQuantity": "Increase quantity",
+  "productNotFound": "This product is no longer available",
+  "productError": "Couldn't load this product"
 }

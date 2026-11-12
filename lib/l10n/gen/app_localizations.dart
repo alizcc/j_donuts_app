@@ -176,18 +176,6 @@ abstract class AppLocalizations {
   /// **'Settings'**
   String get navSettings;
 
-  /// No description provided for @screenWelcome.
-  ///
-  /// In en, this message translates to:
-  /// **'Welcome'**
-  String get screenWelcome;
-
-  /// No description provided for @screenProduct.
-  ///
-  /// In en, this message translates to:
-  /// **'Product {id}'**
-  String screenProduct(String id);
-
   /// No description provided for @onboardingTitle.
   ///
   /// In en, this message translates to:
@@ -397,6 +385,186 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Log out'**
   String get logOut;
+
+  /// No description provided for @welcomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Welcome to the\nworld of J\'donuts'**
+  String get welcomeTitle;
+
+  /// No description provided for @letsExplore.
+  ///
+  /// In en, this message translates to:
+  /// **'Let\'s explore'**
+  String get letsExplore;
+
+  /// No description provided for @tierBronze.
+  ///
+  /// In en, this message translates to:
+  /// **'Bronze'**
+  String get tierBronze;
+
+  /// No description provided for @tierSilver.
+  ///
+  /// In en, this message translates to:
+  /// **'Silver'**
+  String get tierSilver;
+
+  /// No description provided for @tierGold.
+  ///
+  /// In en, this message translates to:
+  /// **'Gold'**
+  String get tierGold;
+
+  /// No description provided for @tierPlatinum.
+  ///
+  /// In en, this message translates to:
+  /// **'Platinum'**
+  String get tierPlatinum;
+
+  /// No description provided for @memberTier.
+  ///
+  /// In en, this message translates to:
+  /// **'{tier} member'**
+  String memberTier(String tier);
+
+  /// No description provided for @pointsToNextTier.
+  ///
+  /// In en, this message translates to:
+  /// **'{points} points left to become {tier} Member'**
+  String pointsToNextTier(String points, String tier);
+
+  /// No description provided for @topTierReached.
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re at the top tier'**
+  String get topTierReached;
+
+  /// No description provided for @notificationsTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'Notifications'**
+  String get notificationsTooltip;
+
+  /// No description provided for @seeAllTooltip.
+  ///
+  /// In en, this message translates to:
+  /// **'See all'**
+  String get seeAllTooltip;
+
+  /// No description provided for @sectionSeasonal.
+  ///
+  /// In en, this message translates to:
+  /// **'Seasonal specials'**
+  String get sectionSeasonal;
+
+  /// No description provided for @sectionPopular.
+  ///
+  /// In en, this message translates to:
+  /// **'Popular 🔥'**
+  String get sectionPopular;
+
+  /// No description provided for @sectionOrderAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Order again'**
+  String get sectionOrderAgain;
+
+  /// No description provided for @discountBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'{percent}% off'**
+  String discountBadge(int percent);
+
+  /// No description provided for @shopsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'There {count, plural, =1{is 1 J\'Donut shop} other{are {count} J\'Donut shops}} near you.'**
+  String shopsTitle(int count);
+
+  /// No description provided for @exploreNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Explore now'**
+  String get exploreNow;
+
+  /// No description provided for @orderOnline.
+  ///
+  /// In en, this message translates to:
+  /// **'Order Online'**
+  String get orderOnline;
+
+  /// No description provided for @sectionEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Nothing here yet'**
+  String get sectionEmpty;
+
+  /// No description provided for @sectionError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t load this section'**
+  String get sectionError;
+
+  /// No description provided for @refreshFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t refresh. Showing saved data.'**
+  String get refreshFailed;
+
+  /// No description provided for @newBadge.
+  ///
+  /// In en, this message translates to:
+  /// **'New'**
+  String get newBadge;
+
+  /// No description provided for @priceMmk.
+  ///
+  /// In en, this message translates to:
+  /// **'{amount} MMK'**
+  String priceMmk(String amount);
+
+  /// No description provided for @whatsThis.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s\nthis?'**
+  String get whatsThis;
+
+  /// No description provided for @addToCart.
+  ///
+  /// In en, this message translates to:
+  /// **'Add to cart'**
+  String get addToCart;
+
+  /// No description provided for @addedToCart.
+  ///
+  /// In en, this message translates to:
+  /// **'Added {quantity} × {name}'**
+  String addedToCart(int quantity, String name);
+
+  /// No description provided for @decreaseQuantity.
+  ///
+  /// In en, this message translates to:
+  /// **'Decrease quantity'**
+  String get decreaseQuantity;
+
+  /// No description provided for @increaseQuantity.
+  ///
+  /// In en, this message translates to:
+  /// **'Increase quantity'**
+  String get increaseQuantity;
+
+  /// No description provided for @productNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'This product is no longer available'**
+  String get productNotFound;
+
+  /// No description provided for @productError.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t load this product'**
+  String get productError;
 }
 
 class _AppLocalizationsDelegate

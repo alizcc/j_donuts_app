@@ -49,14 +49,6 @@ class AppLocalizationsMy extends AppLocalizations {
   String get navSettings => 'ဆက်တင်';
 
   @override
-  String get screenWelcome => 'ကြိုဆိုပါသည်';
-
-  @override
-  String screenProduct(String id) {
-    return 'ပစ္စည်း $id';
-  }
-
-  @override
   String get onboardingTitle => 'စိတ်ခံစားမှုတိုင်းအတွက် အဝိုင်းလေးတွေ';
 
   @override
@@ -169,4 +161,112 @@ class AppLocalizationsMy extends AppLocalizations {
 
   @override
   String get logOut => 'ထွက်မည်';
+
+  @override
+  String get welcomeTitle => 'J\'donuts ကမ္ဘာမှ\nကြိုဆိုပါတယ်';
+
+  @override
+  String get letsExplore => 'စတင်ကြည့်ရှုမည်';
+
+  @override
+  String get tierBronze => 'ကြေး';
+
+  @override
+  String get tierSilver => 'ငွေ';
+
+  @override
+  String get tierGold => 'ရွှေ';
+
+  @override
+  String get tierPlatinum => 'ပလက်တီနမ်';
+
+  @override
+  String memberTier(String tier) {
+    return '$tier အဖွဲ့ဝင်';
+  }
+
+  @override
+  String pointsToNextTier(String points, String tier) {
+    return '$tier အဖွဲ့ဝင်ဖြစ်ရန် $points မှတ် လိုပါသေးသည်';
+  }
+
+  @override
+  String get topTierReached => 'အမြင့်ဆုံးအဆင့်သို့ ရောက်ရှိပြီ';
+
+  @override
+  String get notificationsTooltip => 'အသိပေးချက်များ';
+
+  @override
+  String get seeAllTooltip => 'အားလုံးကြည့်ရန်';
+
+  @override
+  String get sectionSeasonal => 'ရာသီအထူး';
+
+  @override
+  String get sectionPopular => 'လူကြိုက်များ 🔥';
+
+  @override
+  String get sectionOrderAgain => 'ထပ်မံမှာယူရန်';
+
+  @override
+  String discountBadge(int percent) {
+    return '$percent% လျှော့';
+  }
+
+  @override
+  String shopsTitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'သင့်အနီးတွင် J\'Donut ဆိုင် $count ဆိုင် ရှိပါသည်။',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get exploreNow => 'ကြည့်ရှုမည်';
+
+  @override
+  String get orderOnline => 'အွန်လိုင်းမှာယူရန်';
+
+  @override
+  String get sectionEmpty => 'မရှိသေးပါ';
+
+  @override
+  String get sectionError => 'ဤအပိုင်းကို ဖွင့်၍မရပါ';
+
+  @override
+  String get refreshFailed =>
+      'အသစ်မရယူနိုင်ပါ။ သိမ်းထားသော အချက်အလက်ကို ပြသနေသည်။';
+
+  @override
+  String get newBadge => 'အသစ်';
+
+  @override
+  String priceMmk(String amount) {
+    return '$amount ကျပ်';
+  }
+
+  @override
+  String get whatsThis => 'ဒါက\nဘာလဲ?';
+
+  @override
+  String get addToCart => 'ခြင်းထဲထည့်မည်';
+
+  @override
+  String addedToCart(int quantity, String name) {
+    return '$name $quantity ခု ထည့်ပြီးပါပြီ';
+  }
+
+  @override
+  String get decreaseQuantity => 'အရေအတွက် လျှော့ရန်';
+
+  @override
+  String get increaseQuantity => 'အရေအတွက် တိုးရန်';
+
+  @override
+  String get productNotFound => 'ဤပစ္စည်း မရနိုင်တော့ပါ';
+
+  @override
+  String get productError => 'ဤပစ္စည်းကို ဖွင့်၍မရပါ';
 }

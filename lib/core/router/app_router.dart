@@ -11,6 +11,9 @@ import 'package:j_donuts_app/features/auth/presentation/screens/name_screen.dart
 import 'package:j_donuts_app/features/auth/presentation/screens/onboarding_screen.dart';
 import 'package:j_donuts_app/features/auth/presentation/screens/otp_screen.dart';
 import 'package:j_donuts_app/features/auth/presentation/screens/phone_screen.dart';
+import 'package:j_donuts_app/features/auth/presentation/screens/welcome_screen.dart';
+import 'package:j_donuts_app/features/home/presentation/home_screen.dart';
+import 'package:j_donuts_app/features/product/presentation/product_detail_screen.dart';
 import 'package:j_donuts_app/features/settings/presentation/settings_screen.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -62,26 +65,30 @@ GoRouter appRouter(Ref ref) {
       ),
       GoRoute(
         path: AppRoutes.welcome,
-        pageBuilder: (context, state) => fadeThroughPage(
-          state: state,
-          child: PlaceholderScreen(title: context.l10n.screenWelcome),
-        ),
+        pageBuilder: (context, state) =>
+            fadeThroughPage(state: state, child: const WelcomeScreen()),
       ),
       GoRoute(
         path: AppRoutes.product,
         pageBuilder: (context, state) => fadeThroughPage(
           state: state,
-          child: PlaceholderScreen(
-            title: context.l10n.screenProduct(
-              state.pathParameters[AppRoutes.productIdParam]!,
-            ),
+          child: ProductDetailScreen(
+            productId: state.pathParameters[AppRoutes.productIdParam]!,
+            heroTag: state.extra as String?,
           ),
         ),
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, shell) => AppShell(shell: shell),
         branches: [
-          _tab(AppRoutes.home, (l10n) => l10n.navHome),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                path: AppRoutes.home,
+                builder: (context, state) => const HomeScreen(),
+              ),
+            ],
+          ),
           _tab(AppRoutes.rewards, (l10n) => l10n.navReward),
           _tab(AppRoutes.scan, (l10n) => l10n.navScan),
           _tab(AppRoutes.wallet, (l10n) => l10n.navWallet),

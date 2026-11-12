@@ -11,7 +11,7 @@ DateOfBirthError? validateDateOfBirth({
   if (year == null || month == null || day == null) {
     return DateOfBirthError.incomplete;
   }
-  final date = DateTime(year, month, day); 
+  final date = DateTime(year, month, day);
   // if date is 31Apr, it will be 1stMay
   if (date.year != year || date.month != month || date.day != day) {
     return DateOfBirthError.invalidDate;

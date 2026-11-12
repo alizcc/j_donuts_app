@@ -1,0 +1,162 @@
+{
+  "member": {
+    "id": "me",
+    "tier": "silver",
+    "points": 680000,
+    "nextTierPoints": 680500,
+    "notificationCount": 2,
+    "rewardCount": 3
+  },
+  "banners": [
+    {
+      "id": "b_new_shop",
+      "tag": "New shop",
+      "title": "We are now at\nCentral Boulevard",
+      "color": "purple"
+    },
+    {
+      "id": "b_hot_deal",
+      "tag": "50% off",
+      "title": "Hot deals on\nthe holiday boxes",
+      "color": "cyan"
+    },
+    {
+      "id": "b_new_drink",
+      "tag": "New",
+      "title": "Try our iced\npeach tea",
+      "color": "pink"
+    }
+  ],
+  "products": [
+    {
+      "id": "p_coconut",
+      "code": "JD022123",
+      "name": "Coconut Donut",
+      "priceMmk": 3200,
+      "isNew": true,
+      "discountPercent": null,
+      "imageUrl": "https://raw.githubusercontent.com/alizcc/j_donuts_app/main/assets/images/products/chocolate_donut.jpeg",
+      "imageAsset": "assets/images/products/chocolate_donut.jpeg",
+      "description": "Enjoy our scrumptious donuts – soft, sweet, and satisfying in every bite. Choose from classic glazed, rich chocolate, or fun sprinkles. Dive into deliciousness now!"
+    },
+    {
+      "id": "p_mistletoe_box",
+      "code": "JD022201",
+      "name": "Mistletoe Romance box",
+      "priceMmk": 18000,
+      "isNew": false,
+      "discountPercent": 40,
+      "imageUrl": "https://raw.githubusercontent.com/alizcc/j_donuts_app/main/assets/images/products/donut_box.jpeg",
+      "imageAsset": "assets/images/products/donut_box.jpeg",
+      "description": "Six hand-dipped donuts in festive glazes, boxed for sharing with someone special this season."
+    },
+    {
+      "id": "p_christmas_box",
+      "code": "JD022202",
+      "name": "Christmas Mix Family box",
+      "priceMmk": 24000,
+      "isNew": true,
+      "discountPercent": null,
+      "imageUrl": "https://raw.githubusercontent.com/alizcc/j_donuts_app/main/assets/images/products/sprinkle_donuts.jpeg",
+      "imageAsset": "assets/images/products/sprinkle_donuts.jpeg",
+      "description": "A dozen pink, chocolate and vanilla donuts covered in rainbow sprinkles. Enough for the whole family."
+    },
+    {
+      "id": "p_strawberry",
+      "code": "JD021987",
+      "name": "Strawberry Chocolate Donuts",
+      "priceMmk": 3500,
+      "isNew": false,
+      "discountPercent": null,
+      "imageUrl": "https://raw.githubusercontent.com/alizcc/j_donuts_app/main/assets/images/products/chocolate_donut.jpeg",
+      "imageAsset": "assets/images/products/chocolate_donut.jpeg",
+      "description": "Rich chocolate donuts with a strawberry glaze and crunchy sprinkles on top."
+    },
+    {
+      "id": "p_peach_tea",
+      "code": "JD030045",
+      "name": "Peach Lemongrass Tea",
+      "priceMmk": 4500,
+      "isNew": false,
+      "discountPercent": null,
+      "imageUrl": "https://raw.githubusercontent.com/alizcc/j_donuts_app/main/assets/images/products/peach_tea.jpg",
+      "imageAsset": "assets/images/products/peach_tea.jpg",
+      "description": "Iced black tea with fresh peach and lemongrass. The perfect partner for any donut."
+    },
+    {
+      "id": "p_santa_set",
+      "code": "JD022310",
+      "name": "Santa's favorite cookies set",
+      "priceMmk": 12000,
+      "isNew": false,
+      "discountPercent": 20,
+      "imageUrl": "https://raw.githubusercontent.com/alizcc/j_donuts_app/main/assets/images/products/sprinkle_donuts.jpeg",
+      "imageAsset": "assets/images/products/sprinkle_donuts.jpeg",
+      "description": "A mini set of sprinkle donuts and butter cookies that Santa would never skip."
+    },
+    {
+      "id": "p_glazed",
+      "code": "JD021500",
+      "name": "Classic Glazed Donut",
+      "priceMmk": 2500,
+      "isNew": true,
+      "discountPercent": null,
+      "imageUrl": "https://raw.githubusercontent.com/alizcc/j_donuts_app/main/assets/images/products/donut_box.jpeg",
+      "imageAsset": "assets/images/products/donut_box.jpeg",
+      "description": "Our original yeast donut with a light vanilla glaze. Simple and perfect."
+    }
+  ],
+  "sections": [
+    {
+      "key": "seasonal",
+      "productIds": [
+        "p_coconut",
+        "p_mistletoe_box",
+        "p_christmas_box"
+      ]
+    },
+    {
+      "key": "popular",
+      "productIds": [
+        "p_glazed",
+        "p_strawberry",
+        "p_peach_tea",
+        "p_coconut"
+      ]
+    },
+    {
+      "key": "orderAgain",
+      "productIds": [
+        "p_santa_set",
+        "p_peach_tea",
+        "p_strawberry"
+      ]
+    }
+  ],
+  "shops": [
+    {
+      "id": "s_myaynigone",
+      "name": "Myaynigone J'Donut",
+      "address": "2972 Pyay Road, Sanchaung Township, Yangon.",
+      "color": "orange"
+    },
+    {
+      "id": "s_hledan",
+      "name": "Hledan J'Donut",
+      "address": "12 Hledan Road, Kamayut Township, Yangon.",
+      "color": "pink"
+    },
+    {
+      "id": "s_bahan",
+      "name": "Bahan J'Donut",
+      "address": "45 Dhammazedi Road, Bahan Township, Yangon.",
+      "color": "purple"
+    },
+    {
+      "id": "s_downtown",
+      "name": "Downtown J'Donut",
+      "address": "108 Sule Pagoda Road, Kyauktada Township, Yangon.",
+      "color": "cyan"
+    }
+  ]
+}

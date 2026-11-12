@@ -48,14 +48,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navSettings => 'Settings';
 
   @override
-  String get screenWelcome => 'Welcome';
-
-  @override
-  String screenProduct(String id) {
-    return 'Product $id';
-  }
-
-  @override
   String get onboardingTitle => 'Round food for\nevery mood';
 
   @override
@@ -174,4 +166,112 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get logOut => 'Log out';
+
+  @override
+  String get welcomeTitle => 'Welcome to the\nworld of J\'donuts';
+
+  @override
+  String get letsExplore => 'Let\'s explore';
+
+  @override
+  String get tierBronze => 'Bronze';
+
+  @override
+  String get tierSilver => 'Silver';
+
+  @override
+  String get tierGold => 'Gold';
+
+  @override
+  String get tierPlatinum => 'Platinum';
+
+  @override
+  String memberTier(String tier) {
+    return '$tier member';
+  }
+
+  @override
+  String pointsToNextTier(String points, String tier) {
+    return '$points points left to become $tier Member';
+  }
+
+  @override
+  String get topTierReached => 'You\'re at the top tier';
+
+  @override
+  String get notificationsTooltip => 'Notifications';
+
+  @override
+  String get seeAllTooltip => 'See all';
+
+  @override
+  String get sectionSeasonal => 'Seasonal specials';
+
+  @override
+  String get sectionPopular => 'Popular 🔥';
+
+  @override
+  String get sectionOrderAgain => 'Order again';
+
+  @override
+  String discountBadge(int percent) {
+    return '$percent% off';
+  }
+
+  @override
+  String shopsTitle(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'are $count J\'Donut shops',
+      one: 'is 1 J\'Donut shop',
+    );
+    return 'There $_temp0 near you.';
+  }
+
+  @override
+  String get exploreNow => 'Explore now';
+
+  @override
+  String get orderOnline => 'Order Online';
+
+  @override
+  String get sectionEmpty => 'Nothing here yet';
+
+  @override
+  String get sectionError => 'Couldn\'t load this section';
+
+  @override
+  String get refreshFailed => 'Couldn\'t refresh. Showing saved data.';
+
+  @override
+  String get newBadge => 'New';
+
+  @override
+  String priceMmk(String amount) {
+    return '$amount MMK';
+  }
+
+  @override
+  String get whatsThis => 'What\'s\nthis?';
+
+  @override
+  String get addToCart => 'Add to cart';
+
+  @override
+  String addedToCart(int quantity, String name) {
+    return 'Added $quantity × $name';
+  }
+
+  @override
+  String get decreaseQuantity => 'Decrease quantity';
+
+  @override
+  String get increaseQuantity => 'Increase quantity';
+
+  @override
+  String get productNotFound => 'This product is no longer available';
+
+  @override
+  String get productError => 'Couldn\'t load this product';
 }
